@@ -6,7 +6,7 @@
  * Created at: 2016-04-02 22:48
  */
 
-namespace frontend\controllers;
+namespace cms\frontend\controllers;
 
 use yii;
 use yii\web\Controller;

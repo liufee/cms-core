@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 use common\helpers\FamilyTree;
@@ -59,14 +59,14 @@ class Category extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'parent_id' => Yii::t('app', 'Category Id'),
-            'name' => Yii::t('app', 'Name'),
-            'alias' => Yii::t('app', 'Alias'),
-            'sort' => Yii::t('app', 'Sort'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'remark' => Yii::t('app', 'Remark'),
+            'id' => yii::t('cms', 'ID'),
+            'parent_id' => yii::t('cms', 'Category Id'),
+            'name' => yii::t('cms', 'Name'),
+            'alias' => yii::t('cms', 'Alias'),
+            'sort' => yii::t('cms', 'Sort'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
+            'remark' => yii::t('cms', 'Remark'),
         ];
     }
 
@@ -121,11 +121,11 @@ class Category extends \yii\db\ActiveRecord
         $familyTree = new FamilyTree( $categories );
         $subs = $familyTree->getDescendants($this->id);
         if (! empty($subs)) {
-            $this->addError('id', yii::t('app', 'Allowed not to be deleted, sub level exsited.'));
+            $this->addError('id', yii::t('cms', 'Allowed not to be deleted, sub level exsited.'));
             return false;
         }
         if (Article::findOne(['cid' => $this->id]) != null) {
-            $this->addError('id', yii::t('app', 'Allowed not to be deleted, some article belongs to this category.'));
+            $this->addError('id', yii::t('cms', 'Allowed not to be deleted, some article belongs to this category.'));
             return false;
         }
         return parent::beforeDelete();
@@ -138,14 +138,14 @@ class Category extends \yii\db\ActiveRecord
     {
         if (! $this->getIsNewRecord() ) {
             if( $this->id == $this->parent_id ) {
-                $this->addError('parent_id', yii::t('app', 'Cannot be themself sub.'));
+                $this->addError('parent_id', yii::t('cms', 'Cannot be themself sub.'));
                 return false;
             }
             $familyTree = new FamilyTree(self::_getCategories());
             $descendants = $familyTree->getDescendants($this->id);
             $descendants = array_column($descendants, 'id');
             if( in_array($this->parent_id, $descendants) ){
-                $this->addError('parent_id', yii::t('app', 'Cannot be themselves descendants sub'));
+                $this->addError('parent_id', yii::t('cms', 'Cannot be themselves descendants sub'));
                 return false;
             }
         }

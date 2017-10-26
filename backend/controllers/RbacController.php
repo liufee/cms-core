@@ -6,7 +6,7 @@
  * Created at: 2017-09-12 11:30
  */
 
-namespace backend\controllers;
+namespace cms\backend\controllers;
 
 use yii;
 use backend\models\search\RbacSearch;
@@ -49,7 +49,7 @@ class RbacController extends \yii\web\Controller
         $model = new Rbac(['scenario'=>'permission']);
         if( yii::$app->getRequest()->getIsPost() ) {
             if ($model->load(yii::$app->getRequest()->post()) && $model->validate() && $model->createPermission()) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
                 return $this->redirect(['permissions']);
             } else {
                 $errors = $model->getErrors();
@@ -71,7 +71,7 @@ class RbacController extends \yii\web\Controller
         $model->fillModel($name);
         if( yii::$app->getRequest()->getIsPost() ) {
             if ($model->load(yii::$app->getRequest()->post()) && $model->validate() && $model->updatePermission($name)) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
                 return $this->redirect(['permissions']);
             } else {
                 $errors = $model->getErrors();
@@ -102,16 +102,16 @@ class RbacController extends \yii\web\Controller
                 }
             }
             if (count($errorIds) == 0) {
-                return ['code' => 0, 'message' => yii::t('app', 'Success')];
+                return ['code' => 0, 'message' => yii::t('cms', 'Success')];
             } else {
-                return ['code' => 1, 'message' => 'id ' . implode(',', $errorIds) . yii::t('app', 'Error')];
+                return ['code' => 1, 'message' => 'id ' . implode(',', $errorIds) . yii::t('cms', 'Error')];
             }
         }else {
             $model->fillModel($name);
             if ($model->deletePermission() ) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
             } else {
-                yii::$app->getSession()->setFlash('error', yii::t('app', 'Error'));
+                yii::$app->getSession()->setFlash('error', yii::t('cms', 'Error'));
             }
             return $this->redirect('permissions');
         }
@@ -132,7 +132,7 @@ class RbacController extends \yii\web\Controller
         $model = new Rbac(['scenario'=>'role']);
         if( yii::$app->getRequest()->getIsPost() ) {
             if ($model->load(yii::$app->getRequest()->post()) && $model->validate() && $model->createRole()) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
                 return $this->redirect(['roles']);
             } else {
                 $errors = $model->getErrors();
@@ -154,7 +154,7 @@ class RbacController extends \yii\web\Controller
         $model->fillModel($name);
         if( yii::$app->getRequest()->getIsPost() ) {
             if ($model->load(yii::$app->getRequest()->post()) && $model->validate() && $model->updateRole($name)) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
                 return $this->redirect(['roles']);
             } else {
                 $errors = $model->getErrors();
@@ -195,7 +195,7 @@ class RbacController extends \yii\web\Controller
             Yii::$app->getResponse()->format = Response::FORMAT_JSON;
             $id = yii::$app->getRequest()->get('id', '');
             if (! $id) {
-                return ['code' => 1, 'message' => yii::t('app', "Name doesn't exit")];
+                return ['code' => 1, 'message' => yii::t('cms', "Name doesn't exit")];
             }
             $ids = explode(',', $id);
             $errorIds = [];
@@ -219,7 +219,7 @@ class RbacController extends \yii\web\Controller
                     return $this->redirect(yii::$app->request->headers['referer']);
                 }
             } else {
-                throw new UnprocessableEntityHttpException(yii::t('app', 'Error'));
+                throw new UnprocessableEntityHttpException(yii::t('cms', 'Error'));
             }
         }
     }

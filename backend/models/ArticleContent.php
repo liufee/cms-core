@@ -6,11 +6,11 @@
  * Created at: 2016-04-11 11:30
  */
 
-namespace backend\models;
+namespace cms\backend\models;
 
 use yii;
 
-class ArticleContent extends \common\models\ArticleContent
+class ArticleContent extends \cms\common\models\ArticleContent
 {
 
     /**

@@ -6,7 +6,7 @@
  * Created at: 2016-04-11 09:53
  */
 
-namespace backend\models;
+namespace cms\backend\models;
 
 use common\libs\Constants;
 use common\models\meta\ArticleMetaTag;
@@ -14,7 +14,7 @@ use yii;
 use yii\web\UploadedFile;
 use yii\helpers\FileHelper;
 
-class Article extends \common\models\Article
+class Article extends \cms\common\models\Article
 {
 
     /**
@@ -31,7 +31,7 @@ class Article extends \common\models\Article
             }
             $fullName = $uploadPath . uniqid() . '_' . $upload->baseName . '.' . $upload->extension;
             if (! $upload->saveAs($fullName)) {
-                $this->addError('thumb', yii::t('app', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('app', 'Thumb')]) . ': ' . $fullName);
+                $this->addError('thumb', yii::t('cms', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('cms', 'Thumb')]) . ': ' . $fullName);
                 return false;
             }
             $this->thumb = str_replace(yii::getAlias('@frontend/web'), '', $fullName);
@@ -71,7 +71,7 @@ class Article extends \common\models\Article
         }
         if($this->visibility == Constants::ARTICLE_VISIBILITY_SECRET){//加密文章需要设置密码
             if( empty( $this->password ) ){
-                $this->addError('password', yii::t('app', "Secret article must set a password"));
+                $this->addError('password', yii::t('cms', "Secret article must set a password"));
                 return false;
             }
         }else{

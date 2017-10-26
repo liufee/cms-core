@@ -8,8 +8,8 @@
 use yii\helpers\Url;
 
 $this->params['breadcrumbs'] = [
-    ['label' => yii::t('app', 'Friendly Links'), 'url' => Url::to(['index'])],
-    ['label' => yii::t('app', 'Update') . yii::t('app', 'Friendly Links')],
+    ['label' => yii::t('cms', 'Friendly Links'), 'url' => Url::to(['index'])],
+    ['label' => yii::t('cms', 'Update') . yii::t('cms', 'Friendly Links')],
 ];
 /**
  * @var $model backend\models\FriendlyLink

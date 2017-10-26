@@ -6,7 +6,7 @@
  * Created at: 2017-01-04 09:37
  */
 
-namespace feehi\components;
+namespace cms\feehi\components;
 
 use feehi\assets\CaptchaAsset;
 use yii\helpers\Json;

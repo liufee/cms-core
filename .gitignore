@@ -1,6 +1,6 @@
 # yii console command
-/yii
-/yii_test
+src/yii
+src/yii_test
 
 # phpstorm project files
 .idea
@@ -20,17 +20,16 @@ Thumbs.db
 
 
 # composer itself is not needed
-composer.phar
+src/composer.phar
 
 # Mac DS_Store Files
 .DS_Store
 
 # phpunit itself is not needed
-phpunit.phar
+src/phpunit.phar
 # local phpunit config
-/phpunit.xml
-composer.lock
-backend/tests/acceptance.suite.yml
-frontend/tests/acceptance.suite.yml
-api/tests/acceptance.suite.yml
-apps/*
+src/phpunit.xml
+src/composer.lock
+src/backend/tests/acceptance.suite.yml
+src/frontend/tests/acceptance.suite.yml
+src/api/tests/acceptance.suite.yml

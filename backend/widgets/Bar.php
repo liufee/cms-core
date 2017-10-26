@@ -6,7 +6,7 @@
  * Created at: 2016-06-15 09:25
  */
 
-namespace backend\widgets;
+namespace cms\backend\widgets;
 
 use yii;
 use yii\base\Widget;
@@ -67,8 +67,8 @@ class Bar extends Widget
     {
         if (! isset($this->buttons['refresh'])) {
             $this->buttons['refresh'] = function () {
-                return Html::a('<i class="fa fa-refresh"></i> ' . yii::t('app', 'Refresh'), Url::to(['refresh']), [
-                    'title' => yii::t('app', 'Refresh'),
+                return Html::a('<i class="fa fa-refresh"></i> ' . yii::t('cms', 'Refresh'), Url::to(['refresh']), [
+                    'title' => yii::t('cms', 'Refresh'),
                     'data-pjax' => '0',
                     'class' => 'btn btn-white btn-sm refresh',
                 ]);
@@ -77,8 +77,8 @@ class Bar extends Widget
 
         if (! isset($this->buttons['create'])) {
             $this->buttons['create'] = function () {
-                return Html::a('<i class="fa fa-plus"></i> ' . yii::t('app', 'Create'), Url::to(['create']), [
-                    'title' => yii::t('app', 'Create'),
+                return Html::a('<i class="fa fa-plus"></i> ' . yii::t('cms', 'Create'), Url::to(['create']), [
+                    'title' => yii::t('cms', 'Create'),
                     'data-pjax' => '0',
                     'class' => 'btn btn-white btn-sm',
                 ]);
@@ -87,8 +87,8 @@ class Bar extends Widget
 
         if (! isset($this->buttons['sort'])) {
             $this->buttons['sort'] = function () {
-                return Html::a('<i class="fa  fa-sort-numeric-desc"></i> ' . yii::t('app', 'Sort'), Url::to(['sort']), [
-                    'title' => yii::t('app', 'Sort'),
+                return Html::a('<i class="fa  fa-sort-numeric-desc"></i> ' . yii::t('cms', 'Sort'), Url::to(['sort']), [
+                    'title' => yii::t('cms', 'Sort'),
                     'data-pjax' => '0',
                     'class' => 'btn btn-white btn-sm sort',
                 ]);
@@ -97,10 +97,10 @@ class Bar extends Widget
 
         if (! isset($this->buttons['delete'])) {
             $this->buttons['delete'] = function () {
-                return Html::a('<i class="fa fa-trash-o"></i> ' . yii::t('app', 'Delete'), Url::to(['delete']), [
-                    'title' => yii::t('app', 'Delete'),
+                return Html::a('<i class="fa fa-trash-o"></i> ' . yii::t('cms', 'Delete'), Url::to(['delete']), [
+                    'title' => yii::t('cms', 'Delete'),
                     'data-pjax' => '0',
-                    'data-confirm' => yii::t('app', 'Realy to delete?'),
+                    'data-confirm' => yii::t('cms', 'Realy to delete?'),
                     'class' => 'btn btn-white btn-sm multi-operate',
                 ]);
             };

@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2017-03-15 21:16
  */
-namespace frontend\models\form;
+namespace cms\frontend\models\form;
 
 use common\models\User;
 use Yii;
@@ -32,7 +32,7 @@ class PasswordResetRequestForm extends Model
                 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => yii::t('app', 'There is no user with such email.')
+                'message' => yii::t('cms', 'There is no user with such email.')
             ],
         ];
     }
@@ -43,7 +43,7 @@ class PasswordResetRequestForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => yii::t('app', 'Email'),
+            'email' => yii::t('cms', 'Email'),
         ];
     }
 

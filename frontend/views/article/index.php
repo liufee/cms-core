@@ -13,11 +13,11 @@
  */
 
 use yii\helpers\Url;
-use frontend\widgets\ArticleListView;
-use frontend\controllers\components\Article;
-use frontend\widgets\ScrollPicView;
-use common\widgets\JsBlock;
-use frontend\assets\IndexAsset;
+use cms\frontend\widgets\ArticleListView;
+use cms\frontend\controllers\components\Article;
+use cms\frontend\widgets\ScrollPicView;
+use cms\common\widgets\JsBlock;
+use cms\frontend\assets\IndexAsset;
 use yii\helpers\StringHelper;
 
 IndexAsset::register($this);
@@ -35,7 +35,7 @@ $this->registerMetaTag(['description' => yii::$app->feehi->seo_description]);
             <div class="ws_shadow"></div>
         </div>
         <div class="daodu clr">
-            <div class="tip"><h4><?= yii::t('frontend', 'Well-choosen') ?></h4></div>
+            <div class="tip"><h4><?= yii::t('cms', 'Well-choosen') ?></h4></div>
             <ul class="dd-list">
                 <?php
                 $articles = Article::getArticleLists(['flag_special_recommend' => 1], 4);

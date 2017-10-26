@@ -6,7 +6,7 @@
  * Created at: 2016-08-12 22:37
  */
 
-namespace frontend\assets;
+namespace cms\frontend\assets;
 
 
 class IndexAsset extends \yii\web\AssetBundle

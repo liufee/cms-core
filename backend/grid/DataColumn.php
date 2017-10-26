@@ -6,7 +6,7 @@
  * Created at: 2016-03-21 18:46
  */
 
-namespace backend\grid;
+namespace cms\backend\grid;
 
 /**
  * @inheritdoc

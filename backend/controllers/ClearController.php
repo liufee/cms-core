@@ -6,7 +6,7 @@
  * Created at: 2016-04-13 12:49
  */
 
-namespace backend\controllers;
+namespace cms\backend\controllers;
 
 use yii;
 use yii\helpers\FileHelper;
@@ -23,7 +23,7 @@ class ClearController extends \yii\web\Controller
     public function actionBackend()
     {
         FileHelper::removeDirectory(yii::getAlias('@runtime/cache'));
-        Yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+        Yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
         return $this->render('clear');
     }
 
@@ -35,7 +35,7 @@ class ClearController extends \yii\web\Controller
     public function actionFrontend()
     {
         FileHelper::removeDirectory(yii::getAlias('@frontend/runtime/cache'));
-        Yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+        Yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
         return $this->render('clear');
     }
 

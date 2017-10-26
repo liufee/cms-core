@@ -6,7 +6,7 @@
  * Created at: 2016-04-01 23:26
  */
 
-namespace backend\controllers;
+namespace cms\backend\controllers;
 
 use yii;
 use backend\models\search\AdminLogSearch;

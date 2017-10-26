@@ -36,7 +36,7 @@ if ($parent_id != '') {
                 <div class="hr-line-dashed"></div>
                 <?= $form->field($model, 'url')->textInput(['maxlength' => 512]) ?>
                 <div class="hr-line-dashed"></div>
-                <?= $form->field($model, 'icon')->label(yii::t('app', 'Icon').' <a href="http://fontawesome.io/icons/" target="_blank">url</a>')->textInput(['maxlength' => 64]) ?>
+                <?= $form->field($model, 'icon')->label(yii::t('cms', 'Icon').' <a href="http://fontawesome.io/icons/" target="_blank">url</a>')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>
                 <?= $form->field($model, 'sort')->textInput(['maxlength' => 64]) ?>
                 <div class="hr-line-dashed"></div>

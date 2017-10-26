@@ -1,5 +1,5 @@
 <?php
-namespace backend\tests\acceptance;
+namespace cms\backend\tests\acceptance;
 
 use backend\fixtures\UserFixture;
 use backend\tests\AcceptanceTester;

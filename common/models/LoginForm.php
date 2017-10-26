@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 use yii\base\Model;
@@ -46,15 +46,15 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => yii::t('app', 'Username'),
-            'email' => yii::t('app', 'Email'),
-            'old_password' => yii::t('app', 'Old Password'),
-            'password' => yii::t('app', 'Password'),
-            'repassword' => yii::t('app', 'Repeat Password'),
-            'avatar' => yii::t('app', 'Avatar'),
-            'created_at' => yii::t('app', 'Created At'),
-            'updated_at' => yii::t('app', 'Updated At'),
-            'rememberMe' => yii::t('frontend', 'Remember Me'),
+            'username' => yii::t('cms', 'Username'),
+            'email' => yii::t('cms', 'Email'),
+            'old_password' => yii::t('cms', 'Old Password'),
+            'password' => yii::t('cms', 'Password'),
+            'repassword' => yii::t('cms', 'Repeat Password'),
+            'avatar' => yii::t('cms', 'Avatar'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
+            'rememberMe' => yii::t('cms', 'Remember Me'),
         ];
     }
 
@@ -70,7 +70,7 @@ class LoginForm extends Model
         if (! $this->hasErrors()) {
             $user = $this->getUser();
             if (! $user || ! $user->validatePassword($this->password)) {
-                $this->addError($attribute, yii::t('app', 'Incorrect username or password.'));
+                $this->addError($attribute, yii::t('cms', 'Incorrect username or password.'));
             }
         }
     }

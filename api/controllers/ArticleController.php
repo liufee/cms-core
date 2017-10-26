@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2017-08-30 18:10
  */
-namespace api\controllers;
+namespace cms\api\controllers;
 
 use yii\web\Response;
 

@@ -5,7 +5,7 @@
  * Date: 2017/8/29
  * Time: 9:37
  */
-namespace backend\tests\acceptance;
+namespace cms\backend\tests\acceptance;
 
 use backend\fixtures\UserFixture;
 use backend\tests\AcceptanceTester;

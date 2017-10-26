@@ -6,7 +6,7 @@
  * Created at: 2016-05-18 15:35
  */
 
-namespace console\models;
+namespace cms\console\models;
 
 use yii;
 use backend\models\ArticleContent;

@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2016-05-18 11:13
  */
-namespace console\controllers;
+namespace cms\console\controllers;
 
 
 use yii;

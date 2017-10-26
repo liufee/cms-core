@@ -6,7 +6,7 @@
  * Created at: 2017-08-13 12:12
  */
 
-namespace frontend\models\search;
+namespace cms\frontend\models\search;
 
 use yii\data\ActiveDataProvider;
 

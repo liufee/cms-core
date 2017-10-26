@@ -5,12 +5,12 @@
  * Email: job@feehi.com
  * Created at: 2016-03-23 12:54
  */
-namespace backend\models\form;
+namespace cms\backend\models\form;
 
 use yii;
 use common\models\Options;
 
-class SettingWebsiteForm extends \common\models\Options
+class SettingWebsiteForm extends \cms\common\models\Options
 {
     public $website_title;
 
@@ -43,18 +43,18 @@ class SettingWebsiteForm extends \common\models\Options
     public function attributeLabels()
     {
         return [
-            'website_title' => yii::t('app', 'Website Title'),
-            'website_email' => yii::t('app', 'Website Email'),
-            'website_language' => yii::t('app', 'Website Language'),
-            'website_icp' => yii::t('app', 'Icp Sn'),
-            'website_statics_script' => yii::t('app', 'Statics Script'),
-            'website_status' => yii::t('app', 'Website Status'),
-            'website_timezone' => yii::t('app', 'Website Timezone'),
-            'website_comment' => yii::t('app', 'Open Comment'),
-            'website_comment_need_verify' => yii::t('app', 'Open Comment Verify'),
-            'website_url' => yii::t('app', 'Website Url'),
-            'seo_keywords' => yii::t('app', 'Seo Keywords'),
-            'seo_description' => yii::t('app', 'Seo Description'),
+            'website_title' => yii::t('cms', 'Website Title'),
+            'website_email' => yii::t('cms', 'Website Email'),
+            'website_language' => yii::t('cms', 'Website Language'),
+            'website_icp' => yii::t('cms', 'Icp Sn'),
+            'website_statics_script' => yii::t('cms', 'Statics Script'),
+            'website_status' => yii::t('cms', 'Website Status'),
+            'website_timezone' => yii::t('cms', 'Website Timezone'),
+            'website_comment' => yii::t('cms', 'Open Comment'),
+            'website_comment_need_verify' => yii::t('cms', 'Open Comment Verify'),
+            'website_url' => yii::t('cms', 'Website Url'),
+            'seo_keywords' => yii::t('cms', 'Seo Keywords'),
+            'seo_description' => yii::t('cms', 'Seo Description'),
         ];
     }
 

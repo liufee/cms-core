@@ -6,7 +6,7 @@
  * Created at: 2016-03-21 18:45
  */
 
-namespace backend\grid;
+namespace cms\backend\grid;
 
 use yii;
 use yii\helpers\ArrayHelper;
@@ -56,10 +56,10 @@ class GridView extends \yii\grid\GridView
             }
         };
         $this->pagerOptions = [
-            'firstPageLabel' => yii::t('app', 'first'),
-            'lastPageLabel' => yii::t('app', 'last'),
-            'prevPageLabel' => yii::t('app', 'previous'),
-            'nextPageLabel' => yii::t('app', 'next'),
+            'firstPageLabel' => yii::t('cms', 'first'),
+            'lastPageLabel' => yii::t('cms', 'last'),
+            'prevPageLabel' => yii::t('cms', 'previous'),
+            'nextPageLabel' => yii::t('cms', 'next'),
             'options' => [
                 'class' => 'pagination',
             ]

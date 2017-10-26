@@ -58,12 +58,12 @@ $this->title = "Admin";
                 ?>
                 <?= $form->field($model, 'roles', [
                     'labelOptions' => [
-                        'label' => yii::t('app', 'Roles'),
+                        'label' => yii::t('cms', 'Roles'),
                     ]
                 ])->checkboxList($temp, ['itemOptions'=>$itemsOptions]) ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"> <?=yii::t('app', 'Permissions')?></label>
+                    <label class="col-sm-2 control-label"> <?=yii::t('cms', 'Permissions')?></label>
                     <div class="col-sm-10">
                         <?php
                         $itemsOptions = [];

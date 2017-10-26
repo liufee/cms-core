@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 use common\helpers\FamilyTree;
@@ -107,18 +107,18 @@ class Menu extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'type' => Yii::t('app', 'Type'),
-            'parent_id' => Yii::t('app', 'Parent Id'),
-            'name' => Yii::t('app', 'Name'),
-            'url' => Yii::t('app', 'Url'),
-            'icon' => Yii::t('app', 'Icon'),
-            'sort' => Yii::t('app', 'Sort'),
-            'is_absolute_url' => Yii::t('app', 'Is Absolute Url'),
-            'target' => Yii::t('app', 'Target'),
-            'is_display' => Yii::t('app', 'Is Display'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => yii::t('cms', 'ID'),
+            'type' => yii::t('cms', 'Type'),
+            'parent_id' => yii::t('cms', 'Parent Id'),
+            'name' => yii::t('cms', 'Name'),
+            'url' => yii::t('cms', 'Url'),
+            'icon' => yii::t('cms', 'Icon'),
+            'sort' => yii::t('cms', 'Sort'),
+            'is_absolute_url' => yii::t('cms', 'Is Absolute Url'),
+            'target' => yii::t('cms', 'Target'),
+            'is_display' => yii::t('cms', 'Is Display'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
         ];
     }
 
@@ -130,7 +130,7 @@ class Menu extends \yii\db\ActiveRecord
     {
         $menus = self::find()->where(['type' => $type])->orderBy("sort asc,parent_id asc")->asArray()->all();
         foreach ($menus as &$menu){
-            $menu['name'] = yii::t('menu', $menu['name']);
+            $menu['name'] = yii::t('cms-menu', $menu['name']);
         }
         return $menus;
     }
@@ -168,14 +168,14 @@ class Menu extends \yii\db\ActiveRecord
     {
         if( !$this->getIsNewRecord() ){
             if($this->id == $this->parent_id) {
-                $this->addError('parent_id', yii::t('app', 'Cannot be themself sub.'));
+                $this->addError('parent_id', yii::t('cms', 'Cannot be themself sub.'));
                 return false;
             }
             $familyTree = new FamilyTree(Menu::_getMenus($this->type));
             $descendants = $familyTree->getDescendants($this->id);
             $descendants = array_column($descendants, 'id');
             if( in_array($this->parent_id, $descendants) ){
-                $this->addError('parent_id', yii::t('app', 'Cannot be themselves descendants sub'));
+                $this->addError('parent_id', yii::t('cms', 'Cannot be themselves descendants sub'));
                 return false;
             }
         }
@@ -190,7 +190,7 @@ class Menu extends \yii\db\ActiveRecord
         $familyTree = new FamilyTree( $menus );
         $subs = $familyTree->getDescendants($this->id);
         if (! empty($subs)) {
-            $this->addError('id', yii::t('app', 'Sub Menu exists, cannot be deleted'));
+            $this->addError('id', yii::t('cms', 'Sub Menu exists, cannot be deleted'));
             return false;
         }
         return true;

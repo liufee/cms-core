@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\models\search;
+namespace cms\backend\models\search;
 
 use backend\models\Article;
 use common\models\Category;

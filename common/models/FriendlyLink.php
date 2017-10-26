@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 
@@ -58,15 +58,15 @@ class FriendlyLink extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'image' => Yii::t('app', 'Image'),
-            'url' => Yii::t('app', 'Url'),
-            'target' => Yii::t('app', 'Target'),
-            'sort' => Yii::t('app', 'Sort'),
-            'status' => Yii::t('app', 'Is Display'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => yii::t('cms', 'ID'),
+            'name' => yii::t('cms', 'Name'),
+            'image' => yii::t('cms', 'Image'),
+            'url' => yii::t('cms', 'Url'),
+            'target' => yii::t('cms', 'Target'),
+            'sort' => yii::t('cms', 'Sort'),
+            'status' => yii::t('cms', 'Is Display'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
         ];
     }
 }

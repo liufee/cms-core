@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\tests\functional;
+namespace cms\backend\tests\functional;
 
 use backend\models\User;
 use backend\tests\FunctionalTester;

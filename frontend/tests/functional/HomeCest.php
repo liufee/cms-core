@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\tests\functional;
+namespace cms\frontend\tests\functional;
 
 use frontend\tests\FunctionalTester;
 use yii\helpers\Url;

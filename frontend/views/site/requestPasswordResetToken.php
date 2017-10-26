@@ -8,12 +8,12 @@
 
 /* @var $this yii\web\View */
 /* @var $form frontend\widgets\ActiveForm */
-/* @var $model \frontend\models\form\PasswordResetRequestForm */
+/* @var $model cms\\frontend\models\form\PasswordResetRequestForm */
 
 use yii\helpers\Html;
-use frontend\widgets\ActiveForm;
+use cms\frontend\widgets\ActiveForm;
 
-$this->title = yii::t('app', 'Request password reset') . '-' . yii::$app->feehi->website_title;
+$this->title = yii::t('cms', 'Request password reset') . '-' . yii::$app->feehi->website_title;
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerMetaTag(['keywords' => yii::$app->feehi->seo_keywords]);
@@ -42,7 +42,7 @@ $this->registerMetaTag(['description' => yii::$app->feehi->seo_description]);
                 width: 240px;
             }
         </style>
-        <p><?= yii::t('app', 'Please fill out your email. A link to reset password will be sent there.') ?></p>
+        <p><?= yii::t('cms', 'Please fill out your email. A link to reset password will be sent there.') ?></p>
 
         <div class="row">
             <div class="col-lg-5">
@@ -51,7 +51,7 @@ $this->registerMetaTag(['description' => yii::$app->feehi->seo_description]);
                 <?= $form->field($model, 'email', ['template' => "<div style='position:relative'>{label}{input}\n{error}\n{hint}</div>"])->textInput(['autofocus' => true]) ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton(yii::t('app', 'Send'), ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton(yii::t('cms', 'Send'), ['class' => 'btn btn-primary']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

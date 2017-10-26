@@ -1,5 +1,6 @@
 <?php
-namespace backend\tests\models;
+
+namespace cms\backend\tests\unit\models\form;
 use backend\models\form\SettingWebsiteForm;
 use backend\tests\UnitTester;
 

@@ -6,7 +6,7 @@
  * Created at: 2016-04-05 13:08
  */
 
-namespace frontend\controllers;
+namespace cms\frontend\controllers;
 
 use common\models\meta\ArticleMetaTag;
 use yii;
@@ -39,7 +39,7 @@ class SearchController extends Controller
         ]);
         return $this->render('/article/index', [
             'dataProvider' => $dataProvider,
-            'type' => yii::t('frontend', 'Search keyword {keyword} results', ['keyword'=>$keyword]),
+            'type' => yii::t('cms', 'Search keyword {keyword} results', ['keyword'=>$keyword]),
         ]);
     }
 
@@ -60,7 +60,7 @@ class SearchController extends Controller
         ]);
         return $this->render('/article/index', [
             'dataProvider' => $dataProvider,
-            'type' => yii::t('frontend', 'Tag {tag} related articles', ['tag'=>$tag]),
+            'type' => yii::t('cms', 'Tag {tag} related articles', ['tag'=>$tag]),
         ]);
     }
 }

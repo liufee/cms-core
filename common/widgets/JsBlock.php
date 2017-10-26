@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2016-07-08 14:23
  */
-namespace common\widgets;
+namespace cms\common\widgets;
 
 use yii\web\View;
 use yii\widgets\Block;

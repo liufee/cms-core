@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\assets;
+namespace cms\backend\assets;
 
 use yii;
 
@@ -16,7 +16,7 @@ class JstreeAsset extends \yii\web\AssetBundle
     {
         parent::init();
         if( yii::$app->getRequest()->getBaseUrl() !== "" ){
-            $this->sourcePath = '@backend/web';
+            $this->sourcePath = '@cms/backend/web';
         }
     }
 

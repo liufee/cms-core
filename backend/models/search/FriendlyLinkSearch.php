@@ -3,10 +3,10 @@
  * Author: lf
  * Blog: https://blog.feehi.com
  * Email: job@feehi.com
- * Created at: 2017-10-16 16:02
+ * Created at: 2016-04-07 11:37
  */
 
-namespace backend\models\search;
+namespace cms\backend\models\search;
 
 use backend\models\FriendlyLink;
 use yii\data\ActiveDataProvider;
@@ -105,5 +105,4 @@ class FriendlyLinkSearch extends \backend\models\FriendlyLink
         }
         return $dataProvider;
     }
-
 }

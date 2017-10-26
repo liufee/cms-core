@@ -31,7 +31,7 @@ $this->title = "Roles";
                 <?= $form->field($model, 'sort')->textInput() ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"> <?=yii::t('app', 'Permissions')?></label>
+                    <label class="col-sm-2 control-label"> <?=yii::t('cms', 'Permissions')?></label>
                     <div class="col-sm-10">
                         <?php
                         foreach ($model->getPermissionsByGroup('form') as $key => $value){
@@ -59,7 +59,7 @@ $this->title = "Roles";
                     $temp[$role->name] = $role->name;
                 }
                 ?>
-                <?= $form->field($model, 'roles')->label(yii::t('app', 'Roles'))->checkboxList($temp) ?>
+                <?= $form->field($model, 'roles')->label(yii::t('cms', 'Roles'))->checkboxList($temp) ?>
                 <div class="hr-line-dashed"></div>
                 <?= $form->defaultButtons() ?>
                 <?php ActiveForm::end(); ?>

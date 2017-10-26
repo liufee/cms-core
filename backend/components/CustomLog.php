@@ -6,10 +6,10 @@
  * Email: job@feehi.com
  * Created at: 2017-09-20 23:04
  */
-namespace backend\components;
+namespace cms\backend\components;
 
-use backend\models\form\Rbac;
 use yii;
+use backend\models\form\Rbac;
 use yii\base\ErrorException;
 
 class CustomLog extends \yii\base\Event

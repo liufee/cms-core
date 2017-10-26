@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\assets;
+namespace cms\backend\assets;
 
 use yii;
 
@@ -15,7 +15,7 @@ class UeditorAsset extends yii\web\AssetBundle
 
     public $basePath = "@web";
 
-    public $sourcePath = '@backend/web/static/js/plugins/ueditor/';
+    public $sourcePath = '@cms/backend/web/static/js/plugins/ueditor/';
 
     public $js = [
         'ueditor.all.min.js',

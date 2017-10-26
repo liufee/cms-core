@@ -6,10 +6,10 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\components;
+namespace cms\backend\components;
 
 use yii;
-use backend\models\AdminLog as AdminLogModel;
+use cms\backend\models\AdminLog as AdminLogModel;
 
 class AdminLog extends \yii\base\Event
 {

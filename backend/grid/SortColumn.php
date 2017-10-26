@@ -6,7 +6,7 @@
  * Created at: 2017-10-01 10:43
  */
 
-namespace backend\grid;
+namespace cms\backend\grid;
 
 use yii;
 use yii\helpers\Html;
@@ -28,7 +28,7 @@ class SortColumn extends DataColumn
         parent::init();
 
         if( $this->label == 'label' ){
-            $this->label = yii::t('app', 'Sort');
+            $this->label = yii::t('cms', 'Sort');
         }
 
         $this->content = function ($model, $key, $index, $gridView) {

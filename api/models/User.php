@@ -1,15 +1,15 @@
 <?php
 /**
- * Author: lf
- * Blog: https://blog.feehi.com
- * Email: job@feehi.com
- * Created at: 2017-08-30 19:04
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2017/8/30
+ * Time: 19:04
  */
 
-namespace api\models;
+namespace cms\api\models;
 
 
-class User extends \frontend\models\User
+class User extends \cms\frontend\models\User
 {
     public function fields()
     {

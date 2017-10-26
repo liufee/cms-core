@@ -8,15 +8,15 @@
 
 /* @var $this yii\web\View */
 /* @var $form \frontend\widgets\ActiveForm */
-/* @var $model \common\models\LoginForm */
+/* @var $model cms\common\models\LoginForm */
 
 use yii\helpers\Html;
-use frontend\widgets\ActiveForm;
+use cms\frontend\widgets\ActiveForm;
 
 $this->registerMetaTag(['keywords' => yii::$app->feehi->seo_keywords]);
 $this->registerMetaTag(['description' => yii::$app->feehi->seo_description]);
 
-$this->title = yii::t('app', 'Login') . '-' . yii::$app->feehi->website_title;
+$this->title = yii::t('cms', 'Login') . '-' . yii::$app->feehi->website_title;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="content-wrap">
@@ -49,11 +49,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'rememberMe')->checkbox()?>
 
                 <div style="color:#999;margin-right: 120px;">
-                    <?= yii::t('frontend', 'If you forgot your password you can') ?> <?= Html::a(yii::t('frontend', 'reset it'), ['site/request-password-reset']) ?>
+                    <?= yii::t('cms', 'If you forgot your password you can') ?> <?= Html::a(yii::t('cms', 'reset it'), ['site/request-password-reset']) ?>
                 </div>
 
                 <div class="form-group" style="margin-right: 50px">
-                    <?= Html::submitButton(yii::t('frontend', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton(yii::t('cms', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

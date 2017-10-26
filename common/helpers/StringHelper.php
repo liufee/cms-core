@@ -6,7 +6,7 @@
  * Created at: 2017-07-09 00:59
  */
 
-namespace common\helpers;
+namespace cms\common\helpers;
 
 
 class StringHelper extends \yii\helpers\StringHelper

@@ -5,9 +5,9 @@
  * Email: job@feehi.com
  * Created at: 2017-08-30 18:10
  */
-namespace api\models;
+namespace cms\api\models;
 
-class Article extends \common\models\Article
+class Article extends \cms\common\models\Article
 {
     public function fields()
     {

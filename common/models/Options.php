@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 use common\helpers\FileDependencyHelper;
@@ -50,7 +50,7 @@ class Options extends \yii\db\ActiveRecord
                 ['name'],
                 'match',
                 'pattern' => '/^[a-zA-Z][0-9_]*/',
-                'message' => yii::t('app', 'Must begin with alphabet and can only includes alphabet,_,and number')
+                'message' => yii::t('cms', 'Must begin with alphabet and can only includes alphabet,_,and number')
             ],
             [['value'], 'string'],
             [['name', 'tips'], 'string', 'max' => 255],
@@ -63,14 +63,14 @@ class Options extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'type' => Yii::t('app', 'Type'),
-            'name' => Yii::t('app', 'Name'),
-            'value' => Yii::t('app', 'Value'),
-            'input_type' => Yii::t('app', 'Input Type'),
-            'tips' => Yii::t('app', 'Tips'),
-            'autoload' => Yii::t('app', 'Autoload'),
-            'sort' => Yii::t('app', 'Sort'),
+            'id' => yii::t('cms', 'ID'),
+            'type' => yii::t('cms', 'Type'),
+            'name' => yii::t('cms', 'Name'),
+            'value' => yii::t('cms', 'Value'),
+            'input_type' => yii::t('cms', 'Input Type'),
+            'tips' => yii::t('cms', 'Tips'),
+            'autoload' => yii::t('cms', 'Autoload'),
+            'sort' => yii::t('cms', 'Sort'),
         ];
     }
 

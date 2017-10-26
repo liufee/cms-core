@@ -6,7 +6,7 @@
  * Created at: 2017-10-08 00:30
  */
 
-namespace common\models\meta;
+namespace cms\common\models\meta;
 
 
 use yii\helpers\ArrayHelper;

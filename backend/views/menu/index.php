@@ -24,7 +24,7 @@ use backend\grid\CheckboxColumn;
 use backend\grid\ActionColumn;
 
 $this->title = "Backend Menus";
-$this->params['breadcrumbs'][] = yii::t('app', 'Backend Menus');
+$this->params['breadcrumbs'][] = yii::t('cms', 'Backend Menus');
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Backend Menus');
                         ],
                         [
                             'attribute' => 'name',
-                            'label' => yii::t('app', 'Name'),
+                            'label' => yii::t('cms', 'Name'),
                             'format' => 'html',
                             'value' => function ($model, $key, $index, $column) {
                                 return str_repeat("--", $model['level'] - 1) . $model['name'];
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Backend Menus');
                         ],
                         [
                             'attribute' => 'icon',
-                            'label' => yii::t('app', 'Icon'),
+                            'label' => yii::t('cms', 'Icon'),
                             'format' => 'html',
                             'value' => function ($model) {
                                 return "<i class=\"fa {$model['icon']}\"></i>";
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Backend Menus');
                         ],
                         [
                             'attribute' => 'url',
-                            'label' => yii::t('app', 'Url'),
+                            'label' => yii::t('cms', 'Url'),
                         ],
                         [
                             'class' => SortColumn::className()
@@ -67,28 +67,28 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Backend Menus');
                             'class' => StatusColumn::className(),
                             'attribute' => 'is_display',
                             'formName' => (new Menu)->formName() . '[is_display]',
-                            'label' => yii::t('app', 'Is Display'),
+                            'label' => yii::t('cms', 'Is Display'),
                         ],
                         [
                             'class' => DateColumn::className(),
                             'attribute' => 'created_at',
-                            'label' => yii::t('app', 'Created At'),
+                            'label' => yii::t('cms', 'Created At'),
                         ],
                         [
                             'class' => DateColumn::className(),
                             'attribute' => 'updated_at',
-                            'label' => yii::t('app', 'Updated At'),
+                            'label' => yii::t('cms', 'Updated At'),
                         ],
                         [
                             'class' => ActionColumn::className(),
                             'width' => '190px',
                             'buttons' => [
                                 'create' => function ($url, $model, $key) {
-                                    return Html::a('<i class="fa  fa-plus" aria-hidden="true"></i> ' . Yii::t('app', 'Create'), Url::to([
+                                    return Html::a('<i class="fa  fa-plus" aria-hidden="true"></i> ' . yii::t('cms', 'Create'), Url::to([
                                         'create',
                                         'parent_id' => $model['id']
                                     ]), [
-                                        'title' => Yii::t('app', 'Create'),
+                                        'title' => yii::t('cms', 'Create'),
                                         'data-pjax' => '0',
                                         'class' => 'btn btn-white btn-sm J_menuItem',
                                     ]);

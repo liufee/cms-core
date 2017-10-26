@@ -6,7 +6,7 @@
  * Created at: 2016-11-10 10:50
  */
 
-namespace common\models\meta;
+namespace cms\common\models\meta;
 
 use yii;
 

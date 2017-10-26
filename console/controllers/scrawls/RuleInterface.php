@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2016-05-18 11:32
  */
-namespace console\controllers\scrawls;
+namespace cms\console\controllers\scrawls;
 
 interface RuleInterface
 {

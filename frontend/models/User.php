@@ -6,13 +6,13 @@
  * Created at: 2016-04-02 10:30
  */
 
-namespace frontend\models;
+namespace cms\frontend\models;
 
 use yii;
 use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
-class User extends \common\models\User
+class User extends \cms\common\models\User
 {
 
     public $password;
@@ -56,23 +56,23 @@ class User extends \common\models\User
     public function attributeLabels()
     {
         return [
-            'username' => yii::t('app', 'Username'),
-            'email' => yii::t('app', 'Email'),
-            'old_password' => yii::t('app', 'Old Password'),
-            'password' => yii::t('app', 'Password'),
-            'repassword' => yii::t('app', 'Repeat Password'),
-            'avatar' => yii::t('app', 'Avatar'),
-            'status' => yii::t('app', 'Status'),
-            'created_at' => yii::t('app', 'Created At'),
-            'updated_at' => yii::t('app', 'Updated At'),
+            'username' => yii::t('cms', 'Username'),
+            'email' => yii::t('cms', 'Email'),
+            'old_password' => yii::t('cms', 'Old Password'),
+            'password' => yii::t('cms', 'Password'),
+            'repassword' => yii::t('cms', 'Repeat Password'),
+            'avatar' => yii::t('cms', 'Avatar'),
+            'status' => yii::t('cms', 'Status'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
         ];
     }
 
     public static function getStatuses()
     {
         return [
-            self::STATUS_ACTIVE => yii::t('app', 'Normal'),
-            self::STATUS_DELETED => yii::t('app', 'Disabled'),
+            self::STATUS_ACTIVE => yii::t('cms', 'Normal'),
+            self::STATUS_DELETED => yii::t('cms', 'Disabled'),
         ];
     }
 
@@ -118,7 +118,7 @@ class User extends \common\models\User
             }
             $fullName = $uploadPath . uniqid() . '.' . $upload->extension;
             if (! $upload->saveAs($fullName)) {
-                $this->addError('avatar', yii::t('app', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('app', 'avatar')]) . ': ' . $fullName);
+                $this->addError('avatar', yii::t('cms', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('cms', 'avatar')]) . ': ' . $fullName);
                 return false;
             }
             $avatar = $this->getOldAttribute('avatar');

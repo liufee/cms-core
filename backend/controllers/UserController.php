@@ -6,7 +6,7 @@
  * Created at: 2016-04-02 10:02
  */
 
-namespace backend\controllers;
+namespace cms\backend\controllers;
 
 use yii;
 use frontend\models\User;

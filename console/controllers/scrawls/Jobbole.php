@@ -5,10 +5,10 @@
  * Email: job@feehi.com
  * Created at: 2016-05-18 11:31
  */
-namespace console\controllers\scrawls;
+namespace cms\console\controllers\scrawls;
 
 use yii\console\Exception;
-use common\libs\SimpleHtmlDom;
+use cms\common\libs\SimpleHtmlDom;
 
 error_reporting(0);
 

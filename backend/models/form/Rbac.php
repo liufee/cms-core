@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2017-09-12 13:53
  */
-namespace backend\models\form;
+namespace cms\backend\models\form;
 
 use backend\components\CustomLog;
 use yii\base\Event;
@@ -53,7 +53,7 @@ class Rbac extends yii\base\Model
                 ['route'],
                 'match',
                 'pattern' => '/^[\/].*/',
-                'message' => yii::t('app', yii::t('app', 'Must begin with "/" like "/module/controller/action" format')),
+                'message' => yii::t('cms', yii::t('cms', 'Must begin with "/" like "/module/controller/action" format')),
                 'on' => 'permission'
             ],
 
@@ -73,15 +73,15 @@ class Rbac extends yii\base\Model
     public function attributeLabels()
     {
         return [
-            "route" => yii::t('app', 'Route'),
-            "method" => yii::t('app', 'HTTP Method'),
-            "description" => yii::t('app', 'Description'),
-            "group" => yii::t('app', 'Group'),
-            "category" => yii::t('app', 'Category'),
-            "sort" => yii::t('app', 'Sort'),
-            "name" => yii::t('app', 'Role'),
-            "permissions" => yii::t('app', 'Permissions'),
-            "roles" => yii::t('app', 'Role'),
+            "route" => yii::t('cms', 'Route'),
+            "method" => yii::t('cms', 'HTTP Method'),
+            "description" => yii::t('cms', 'Description'),
+            "group" => yii::t('cms', 'Group'),
+            "category" => yii::t('cms', 'Category'),
+            "sort" => yii::t('cms', 'Sort'),
+            "name" => yii::t('cms', 'Role'),
+            "permissions" => yii::t('cms', 'Permissions'),
+            "roles" => yii::t('cms', 'Role'),
         ];
     }
 
@@ -90,8 +90,8 @@ class Rbac extends yii\base\Model
         $this->name = $this->route . ':' . $this->method;
         $authManager = yii::$app->getAuthManager();
         if ($authManager->getPermission($this->name) !== null) {
-            $this->addError('route', yii::t('app', 'Permission exists'));
-            $this->addError('method', yii::t('app', 'Permission exists'));
+            $this->addError('route', yii::t('cms', 'Permission exists'));
+            $this->addError('method', yii::t('cms', 'Permission exists'));
             return false;
         }
         $permission = $authManager->createPermission($this->name);
@@ -119,8 +119,8 @@ class Rbac extends yii\base\Model
         $permission = $authManager->getPermission($name);
         if( $permission->name != $name ){//修改权限名称
             if( $authManager->getPermission($name) !== null ){
-                $this->addError('route', yii::t('app', 'Permission exists'));
-                $this->addError('method', yii::t('app', 'Permission exists'));
+                $this->addError('route', yii::t('cms', 'Permission exists'));
+                $this->addError('method', yii::t('cms', 'Permission exists'));
                 return false;
             }
         }
@@ -161,7 +161,7 @@ class Rbac extends yii\base\Model
 
         $authManager = yii::$app->getAuthManager();
         if ($authManager->getRole($this->name) !== null) {
-            $this->addError('name', yii::t('app', 'Role exists'));
+            $this->addError('name', yii::t('cms', 'Role exists'));
             return false;
         }
         $role = $authManager->createRole($this->name);
@@ -200,7 +200,7 @@ class Rbac extends yii\base\Model
         $role = $authManager->getRole($name);
         if( $role->name != $this->name ){//修改角色名称
             if( $authManager->getRole($this->name) !== null ){
-                $this->addError('name', yii::t('app', 'Role exists'));
+                $this->addError('name', yii::t('cms', 'Role exists'));
                 return false;
             }
         }

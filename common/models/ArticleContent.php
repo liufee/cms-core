@@ -6,7 +6,7 @@
  * Created at: 2016-10-16 17:15
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 
@@ -16,7 +16,6 @@ use Yii;
  * @property string $id
  * @property string $aid
  * @property string $content
- * @property Article $a
  */
 class ArticleContent extends \yii\db\ActiveRecord
 {
@@ -46,9 +45,9 @@ class ArticleContent extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'aid' => Yii::t('app', 'Aid'),
-            'content' => Yii::t('app', 'Content'),
+            'id' => yii::t('cms', 'ID'),
+            'aid' => yii::t('cms', 'Aid'),
+            'content' => yii::t('cms', 'Content'),
         ];
     }
 

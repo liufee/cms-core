@@ -6,16 +6,16 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\controllers;
+namespace cms\backend\controllers;
 
-use Yii;
-use backend\models\search\FriendlyLinkSearch;
+use yii;
 use backend\models\FriendlyLink;
 use backend\actions\CreateAction;
 use backend\actions\UpdateAction;
 use backend\actions\IndexAction;
 use backend\actions\DeleteAction;
 use backend\actions\SortAction;
+use backend\models\search\FriendlyLinkSearch;
 
 /**
  * FriendLink controller

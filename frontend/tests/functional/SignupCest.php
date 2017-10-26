@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\tests\functional;
+namespace cms\frontend\tests\functional;
 
 use frontend\tests\FunctionalTester;
 
@@ -11,7 +11,7 @@ class SignupCest
 
     public function _before(FunctionalTester $I)
     {
-        $I->amOnRoute('site/signup');
+        $I->amOnRoute('/site/signup');
     }
 
     public function signupWithEmptyFields(FunctionalTester $I)

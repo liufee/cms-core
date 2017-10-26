@@ -6,7 +6,7 @@
  * Created at: 2017-09-15 12:29
  */
 
-namespace backend\models\search;
+namespace cms\backend\models\search;
 
 
 use yii\data\ArrayDataProvider;

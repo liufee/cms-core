@@ -5,11 +5,9 @@
  * Email: job@feehi.com
  * Created at: 2016-04-07 12:06
  */
-namespace frontend\models;
+namespace cms\frontend\models;
 
-use common\models\FriendlyLink as CommonFriendLink;
-
-class FriendlyLink extends CommonFriendLink
+class FriendlyLink extends \common\models\FriendlyLink
 {
 
 }

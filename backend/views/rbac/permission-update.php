@@ -13,8 +13,8 @@ use yii\helpers\Url;
  */
 
 $this->params['breadcrumbs'] = [
-    ['label' => yii::t('app', 'Permissions'), 'url' => Url::to(['permissions'])],
-    ['label' => yii::t('app', 'Update') . yii::t('app', 'Permissions')],
+    ['label' => yii::t('cms', 'Permissions'), 'url' => Url::to(['permissions'])],
+    ['label' => yii::t('cms', 'Update') . yii::t('cms', 'Permissions')],
 ];
 
 ?>

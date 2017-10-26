@@ -6,12 +6,12 @@
  * Created at: 2016-06-11 22:11
  */
 
-namespace backend\models\search;
+namespace cms\backend\models\search;
 
 use backend\models\Article;
 use yii\data\ActiveDataProvider;
 
-class CommentSearch extends \common\models\Comment
+class CommentSearch extends \cms\common\models\Comment
 {
 
     public $article_title;

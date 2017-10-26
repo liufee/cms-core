@@ -6,7 +6,7 @@
  * Created at: 2016-03-23 12:08
  */
 
-namespace backend\controllers;
+namespace cms\backend\controllers;
 
 use yii;
 use backend\models\form\SettingWebsiteForm;
@@ -45,7 +45,7 @@ class SettingController extends \yii\web\Controller
         $model = new SettingWebsiteForm();
         if (yii::$app->getRequest()->getIsPost()) {
             if ($model->load(yii::$app->getRequest()->post()) && $model->validate() && $model->setWebsiteConfig()) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
             } else {
                 $errors = $model->getErrors();
                 $err = '';
@@ -76,7 +76,7 @@ class SettingController extends \yii\web\Controller
             foreach ($settings as $setting) {
                 $setting->save(false);
             }
-            yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+            yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
         }
         $options = new Options();
         $options->loadDefaultValues();
@@ -97,7 +97,7 @@ class SettingController extends \yii\web\Controller
         $model = new Options();
         $model->type = Options::TYPE_CUSTOM;
         if ($model->load(yii::$app->getRequest()->post()) && $model->save()) {
-            yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+            yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
             return $this->redirect(['custom']);
         } else {
             $errors = $model->getErrors();
@@ -105,7 +105,7 @@ class SettingController extends \yii\web\Controller
             foreach ($errors as $v) {
                 $err .= $v[0] . '<br>';
             }
-            //Yii::$app->getSession()->setFlash('error', yii::t('app', $err));
+            //Yii::$app->getSession()->setFlash('error', yii::t('cms', $err));
             yii::$app->getResponse()->format = Response::FORMAT_JSON;
             return [
                 'err_msg' => $err,
@@ -124,7 +124,7 @@ class SettingController extends \yii\web\Controller
         $model = Options::findOne(['id' => $id]);
         if (yii::$app->getRequest()->getIsPost()) {
             if ($model->load(yii::$app->getRequest()->post()) && $model->save()) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
                 return $this->redirect(['custom']);
             } else {
                 $errors = $model->getErrors();
@@ -164,7 +164,7 @@ class SettingController extends \yii\web\Controller
         $model = new SettingSmtpForm();
         if (yii::$app->getRequest()->getIsPost()) {
             if ($model->load(yii::$app->getRequest()->post()) && $model->validate() && $model->setSmtpConfig()) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
             } else {
                 $errors = $model->getErrors();
                 $err = '';

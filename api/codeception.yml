@@ -1,4 +1,4 @@
-namespace: api\tests
+namespace: cms\api\tests
 actor: Tester
 paths:
     tests: tests

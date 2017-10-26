@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace frontend\controllers;
+namespace cms\frontend\controllers;
 
 use Yii;
 use common\models\LoginForm;
@@ -122,7 +122,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->getRequest()->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->getSession()
-                    ->setFlash('success', yii::t('app', 'Check your email for further instructions.'));
+                    ->setFlash('success', yii::t('cms', 'Check your email for further instructions.'));
 
                 return $this->goHome();
             } else {
@@ -152,7 +152,7 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->getRequest()->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->getSession()->setFlash('success', yii::t('app', 'New password was saved.'));
+            Yii::$app->getSession()->setFlash('success', yii::t('cms', 'New password was saved.'));
 
             return $this->goHome();
         }

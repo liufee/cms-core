@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\models;
+namespace cms\backend\models;
 
 use backend\components\CustomLog;
 use Yii;
@@ -15,7 +15,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-use \yii\web\ForbiddenHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\web\UploadedFile;
 use yii\helpers\FileHelper;
 
@@ -97,15 +97,15 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'username' => yii::t('app', 'Username'),
-            'email' => yii::t('app', 'Email'),
-            'old_password' => yii::t('app', 'Old Password'),
-            'password' => yii::t('app', 'Password'),
-            'repassword' => yii::t('app', 'Repeat Password'),
-            'avatar' => yii::t('app', 'Avatar'),
-            'status' => yii::t('app', 'Status'),
-            'created_at' => yii::t('app', 'Created At'),
-            'updated_at' => yii::t('app', 'Updated At')
+            'username' => yii::t('cms', 'Username'),
+            'email' => yii::t('cms', 'Email'),
+            'old_password' => yii::t('cms', 'Old Password'),
+            'password' => yii::t('cms', 'Password'),
+            'repassword' => yii::t('cms', 'Repeat Password'),
+            'avatar' => yii::t('cms', 'Avatar'),
+            'status' => yii::t('cms', 'Status'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At')
         ];
     }
 
@@ -122,8 +122,8 @@ class User extends ActiveRecord implements IdentityInterface
     public static function getStatuses()
     {
         return [
-            self::STATUS_ACTIVE => yii::t('app', 'Normal'),
-            self::STATUS_DELETED => yii::t('app', 'Disabled'),
+            self::STATUS_ACTIVE => yii::t('cms', 'Normal'),
+            self::STATUS_DELETED => yii::t('cms', 'Disabled'),
         ];
     }
 
@@ -272,7 +272,7 @@ class User extends ActiveRecord implements IdentityInterface
             }
             $fullName = $uploadPath . uniqid() . '.' . $upload->extension;
             if (! $upload->saveAs($fullName)) {
-                $this->addError('avatar', yii::t('app', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('app', 'Avatar')]) . ': ' . $fullName);
+                $this->addError('avatar', yii::t('cms', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('cms', 'Avatar')]) . ': ' . $fullName);
                 return false;
             }
             $avatar = $this->getOldAttribute('avatar');
@@ -376,15 +376,15 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if ($this->password != '') {
             if ($this->old_password == '') {
-                $this->addError('old_password', yii::t('yii', '{attribute} cannot be blank.', ['attribute' => yii::t('app', 'Old Password')]));
+                $this->addError('old_password', yii::t('yii', '{attribute} cannot be blank.', ['attribute' => yii::t('cms', 'Old Password')]));
                 return false;
             }
             if (! $this->validatePassword($this->old_password)) {
-                $this->addError('old_password', yii::t('app', '{attribute} is incorrect.', ['attribute' => yii::t('app', 'Old Password')]));
+                $this->addError('old_password', yii::t('cms', '{attribute} is incorrect.', ['attribute' => yii::t('cms', 'Old Password')]));
                 return false;
             }
             if ($this->repassword != $this->password) {
-                $this->addError('repassword', yii::t('app', '{attribute} is incorrect.', ['attribute' => yii::t('app', 'Repeat Password')]));
+                $this->addError('repassword', yii::t('cms', '{attribute} is incorrect.', ['attribute' => yii::t('cms', 'Repeat Password')]));
                 return false;
             }
         }
@@ -397,7 +397,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function beforeDelete()
     {
         if ($this->id == 1) {
-            throw new ForbiddenHttpException(yii::t('app', "Not allowed to delete {attribute}", ['attribute' => yii::t('app', 'default super administrator admin')]));
+            throw new ForbiddenHttpException(yii::t('cms', "Not allowed to delete {attribute}", ['attribute' => yii::t('cms', 'default super administrator admin')]));
         }
         return true;
     }
@@ -405,7 +405,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function getRoleName()
     {
         if( in_array( $this->getId(), yii::$app->getBehavior('access')->superAdminUserIds ) ){
-            return yii::t('app', 'System');
+            return yii::t('cms', 'System');
         }
         $role = array_keys( yii::$app->getAuthManager()->getRolesByUser($this->getId()) );
         if( !isset( $role[0] ) ) return '';

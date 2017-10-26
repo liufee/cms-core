@@ -6,10 +6,10 @@
  * Created at: 2016-06-21 14:26
  */
 
-use frontend\controllers\components\Article;
+use cms\frontend\controllers\components\Article;
 use yii\helpers\Url;
-use frontend\models\Comment;
-use frontend\models\FriendlyLink;
+use cms\frontend\models\Comment;
+use cms\frontend\models\FriendlyLink;
 
 ?>
 <aside class="sidebar">
@@ -22,7 +22,7 @@ use frontend\models\FriendlyLink;
                     <div class="weixin-popover">
                         <div class="popover bottom in">
                             <div class="arrow"></div>
-                            <div class="popover-title"><?=yii::t('frontend', 'Follow Wechat')?>“<?= yii::$app->feehi->wechat ?>”</div>
+                            <div class="popover-title"><?=yii::t('cms', 'Follow Wechat')?>“<?= yii::$app->feehi->wechat ?>”</div>
                             <div class="popover-content"><img src="/static/images/weixin.jpg"></div>
                         </div>
                     </div>
@@ -36,9 +36,9 @@ use frontend\models\FriendlyLink;
     <div class="widget d_textbanner">
         <a class="style03" target="_blank"
            href="http://shang.qq.com/wpa/qunwpa?idkey=3693ea25b07705069bc9210c5272830f2b00bd891b14bb6f60ce7bb070570aa9">
-            <strong><?=yii::t('frontend', 'Join group')?></strong>
-            <h2><?=yii::t('frontend', 'Official QQ group - main')?></h2>
-            <p><?=yii::t('frontend', 'FeehiCMS official QQ group number: {number}', ['number'=>'258780872'])?>
+            <strong><?=yii::t('cms', 'Join group')?></strong>
+            <h2><?=yii::t('cms', 'Official QQ group - main')?></h2>
+            <p><?=yii::t('cms', 'FeehiCMS official QQ group number: {number}', ['number'=>'258780872'])?>
                 <br>
                 <br>
                 <img border="0" src="/static/images/group.png" alt="feehi cms" title="feehi cms">
@@ -48,9 +48,9 @@ use frontend\models\FriendlyLink;
 
     <div class="widget d_textbanner">
         <a class="style01" href="http://cms.feehi.com">
-            <strong><?=yii::t('frontend', 'New generation CMS FeehiCMS')?></strong>
-            <h2><?=yii::t('frontend', 'Highly recommend')?></h2>
-            <p><?=yii::t('frontend', 'FeehiCMS based on yii2, support php7, makes website more excellent...')?></p>
+            <strong><?=yii::t('cms', 'New generation CMS FeehiCMS')?></strong>
+            <h2><?=yii::t('cms', 'Highly recommend')?></h2>
+            <p><?=yii::t('cms', 'FeehiCMS based on yii2, support php7, makes website more excellent...')?></p>
         </a>
     </div>
 
@@ -65,7 +65,7 @@ use frontend\models\FriendlyLink;
     <div class="widget d_postlist">
         <div class="title">
             <h2>
-                <sapn class="title_span"><?= yii::t('frontend', 'Hot Recommends') ?></sapn>
+                <sapn class="title_span"><?= yii::t('cms', 'Hot Recommends') ?></sapn>
             </h2>
         </div>
         <ul>
@@ -79,7 +79,7 @@ use frontend\models\FriendlyLink;
                     <a href=\"{$url}\" title=\"{$article->title}\">
                         <span class=\"thumbnail\"><img src=\"{$imgUrl}\" alt=\"{$article->title}\"></span>
                         <span class=\"text\">{$article->title}</span>
-                        <span class=\"muted\">{$article->created_at}</span><span class=\"muted_1\">{$article->comment_count}" . yii::t('frontend', ' Comments') . "</span>
+                        <span class=\"muted\">{$article->created_at}</span><span class=\"muted_1\">{$article->comment_count}" . yii::t('cms', ' Comments') . "</span>
                     </a>
                 </li>";
             }
@@ -96,7 +96,7 @@ use frontend\models\FriendlyLink;
     <div class="widget d_tag">
         <div class="title">
             <h2>
-                <sapn class="title_span"><?= yii::t('frontend', 'Clound Tags') ?></sapn>
+                <sapn class="title_span"><?= yii::t('cms', 'Clound Tags') ?></sapn>
             </h2>
         </div>
         <div class="d_tags">
@@ -105,7 +105,7 @@ use frontend\models\FriendlyLink;
             foreach ($tags as $k => $v) {
                 echo "<a title='' href='" . Url::to([
                         '/tag/' . $k,
-                    ]) . "' data-original-title='{$v}" . yii::t('frontend', ' Topics') . "'>{$k} ({$v})</a>";
+                    ]) . "' data-original-title='{$v}" . yii::t('cms', ' Topics') . "'>{$k} ({$v})</a>";
             }
             ?>
         </div>
@@ -114,21 +114,21 @@ use frontend\models\FriendlyLink;
     <div class="widget d_subscribe">
         <div class="title">
             <h2>
-                <sapn class="title_span"><?= yii::t('frontend', 'Email Suscribe') ?></sapn>
+                <sapn class="title_span"><?= yii::t('cms', 'Email Suscribe') ?></sapn>
             </h2>
         </div>
         <form action="http://list.qq.com/cgi-bin/qf_compose_send" target="_blank" method="post">
-            <p><?= yii::t('frontend', 'Subscribe to the wonderful content') ?></p>
+            <p><?= yii::t('cms', 'Subscribe to the wonderful content') ?></p>
             <input type="hidden" name="t" value="qf_booked_feedback">
             <input type="hidden" name="id" value="">
             <input type="email" name="to" class="rsstxt" placeholder="your@email.com" value="" required="">
-            <input type="submit" class="rssbutton" value="<?= yii::t('frontend', 'Subscribe') ?>">
+            <input type="submit" class="rssbutton" value="<?= yii::t('cms', 'Subscribe') ?>">
         </form>
     </div>
     <div class="widget d_comment">
         <div class="title">
             <h2>
-                <sapn class="title_span"><?= yii::t('frontend', 'Latest Comments') ?></sapn>
+                <sapn class="title_span"><?= yii::t('cms', 'Latest Comments') ?></sapn>
             </h2>
         </div>
         <ul>
@@ -143,7 +143,7 @@ use frontend\models\FriendlyLink;
                              width="50" src="" style="display: block;">
                         <div class="muted">
                             <i><?= $v['nickname'] ?></i>&nbsp;&nbsp;<?= yii::$app->formatter->asRelativeTime($v['created_at']) ?>
-                            (<?= yii::$app->formatter->asTime($v['created_at']) ?>)<?= yii::t('frontend', ' said') ?>
+                            (<?= yii::$app->formatter->asTime($v['created_at']) ?>)<?= yii::t('cms', ' said') ?>
                             ：<br><?= $v['content'] ?></div>
                     </a>
                 </li>
@@ -153,7 +153,7 @@ use frontend\models\FriendlyLink;
     <div class="widget widget_text">
         <div class="title">
             <h2>
-                <sapn class="title_span"><?= yii::t('frontend', 'Frinendly Links') ?></sapn>
+                <sapn class="title_span"><?= yii::t('cms', 'Frinendly Links') ?></sapn>
             </h2>
         </div>
         <div class="textwidget">

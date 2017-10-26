@@ -6,9 +6,9 @@
  * Created at: 2016-10-16 17:15
  */
 
-namespace common\models;
+namespace cms\common\models;
 
-use Yii;
+use yii;
 use common\libs\Constants;
 use yii\behaviors\TimestampBehavior;
 
@@ -184,34 +184,34 @@ class Article extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'cid' => Yii::t('app', 'Category Id'),
-            'type' => Yii::t('app', 'Type'),
-            'title' => Yii::t('app', 'Title'),
-            'sub_title' => Yii::t('app', 'Sub Title'),
-            'summary' => Yii::t('app', 'Summary'),
-            'content' => Yii::t('app', 'Content'),
-            'thumb' => Yii::t('app', 'Thumb'),
-            'seo_title' => Yii::t('app', 'Seo Title'),
-            'seo_keywords' => Yii::t('app', 'Seo Keyword'),
-            'seo_description' => Yii::t('app', 'Seo Description'),
-            'status' => Yii::t('app', 'Status'),
-            'can_comment' => Yii::t('app', 'Can Comment'),
-            'visibility' => Yii::t('app', 'Visibility'),
-            'sort' => Yii::t('app', 'Sort'),
-            'tag' => Yii::t('app', 'Tag'),
-            'author_id' => Yii::t('app', 'Author Id'),
-            'author_name' => Yii::t('app', 'Author'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'flag_headline' => Yii::t('app', 'Is Headline'),
-            'flag_recommend' => Yii::t('app', 'Is Recommend'),
-            'flag_special_recommend' => Yii::t('app', 'Is Special Recommend'),
-            'flag_slide_show' => Yii::t('app', 'Is Slide Show'),
-            'flag_roll' => Yii::t('app', 'Is Roll'),
-            'flag_bold' => Yii::t('app', 'Is Bold'),
-            'flag_picture' => Yii::t('app', 'Is Picture'),
-            'password' => yii::t('app', 'Password'),
+            'id' => yii::t('cms', 'ID'),
+            'cid' => yii::t('cms', 'Category Id'),
+            'type' => yii::t('cms', 'Type'),
+            'title' => yii::t('cms', 'Title'),
+            'sub_title' => yii::t('cms', 'Sub Title'),
+            'summary' => yii::t('cms', 'Summary'),
+            'content' => yii::t('cms', 'Content'),
+            'thumb' => yii::t('cms', 'Thumb'),
+            'seo_title' => yii::t('cms', 'Seo Title'),
+            'seo_keywords' => yii::t('cms', 'Seo Keyword'),
+            'seo_description' => yii::t('cms', 'Seo Description'),
+            'status' => yii::t('cms', 'Status'),
+            'can_comment' => yii::t('cms', 'Can Comment'),
+            'visibility' => yii::t('cms', 'Visibility'),
+            'sort' => yii::t('cms', 'Sort'),
+            'tag' => yii::t('cms', 'Tag'),
+            'author_id' => yii::t('cms', 'Author Id'),
+            'author_name' => yii::t('cms', 'Author'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
+            'flag_headline' => yii::t('cms', 'Is Headline'),
+            'flag_recommend' => yii::t('cms', 'Is Recommend'),
+            'flag_special_recommend' => yii::t('cms', 'Is Special Recommend'),
+            'flag_slide_show' => yii::t('cms', 'Is Slide Show'),
+            'flag_roll' => yii::t('cms', 'Is Roll'),
+            'flag_bold' => yii::t('cms', 'Is Bold'),
+            'flag_picture' => yii::t('cms', 'Is Picture'),
+            'password' => yii::t('cms', 'Password'),
         ];
     }
 

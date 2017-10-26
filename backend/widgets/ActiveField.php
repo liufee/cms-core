@@ -6,7 +6,7 @@
  * Created at: 2016-03-21 14:40
  */
 
-namespace backend\widgets;
+namespace cms\backend\widgets;
 
 use yii;
 use yii\helpers\Html;
@@ -104,7 +104,7 @@ class ActiveField extends \yii\widgets\ActiveField
     public function dropDownList($items, $options = [], $generateDefault = true)
     {
         if ($generateDefault === true && ! isset($options['prompt'])) {
-            $options['prompt'] = yii::t('app', 'Please select');
+            $options['prompt'] = yii::t('cms', 'Please select');
         }
         return parent::dropDownList($items, $options);
     }

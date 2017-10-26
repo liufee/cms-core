@@ -6,11 +6,11 @@
  * Created at: 2017-09-10 16:42
  */
 
-namespace backend\components;
+namespace cms\backend\components;
 
+use yii;
 use yii\web\ForbiddenHttpException;
 use yii\base\Module;
-use Yii;
 use yii\web\User;
 use yii\di\Instance;
 

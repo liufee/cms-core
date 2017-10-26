@@ -6,12 +6,12 @@
  * Created at: 2016-06-19 10:44
  */
 
-namespace frontend\widgets;
+namespace cms\frontend\widgets;
 
 
 use yii;
 use yii\helpers\Url;
-use frontend\models\Menu;
+use cms\frontend\models\Menu;
 
 class MenuView extends \yii\base\Widget
 {

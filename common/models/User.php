@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 use yii\base\NotSupportedException;
@@ -68,10 +68,10 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'username' => yii::t('app', 'Username'),
-            'email' => yii::t('app', 'Email'),
-            'created_at' => yii::t('app', 'Created At'),
-            'updated_at' => yii::t('app', 'Updated At'),
+            'username' => yii::t('cms', 'Username'),
+            'email' => yii::t('cms', 'Email'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
         ];
     }
 

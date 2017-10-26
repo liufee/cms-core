@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\models\meta;
+namespace cms\common\models\meta;
 
 use yii;
 
@@ -18,6 +18,7 @@ class ArticleMetaLike extends \common\models\ArticleMeta
 
     /**
      * @param $aid
+     * @param int $value
      * @return bool
      */
     public function setLike($aid)

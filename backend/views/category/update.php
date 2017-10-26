@@ -8,8 +8,8 @@
 use yii\helpers\Url;
 
 $this->params['breadcrumbs'] = [
-    ['label' => yii::t('app', 'Category'), 'url' => Url::to(['index'])],
-    ['label' => yii::t('app', 'Update') . yii::t('app', 'Category')],
+    ['label' => yii::t('cms', 'Category'), 'url' => Url::to(['index'])],
+    ['label' => yii::t('cms', 'Update') . yii::t('cms', 'Category')],
 ];
 /**
  * @var $model common\models\Category

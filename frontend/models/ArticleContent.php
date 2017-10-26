@@ -6,13 +6,11 @@
  * Created at: 2016-04-13 20:25
  */
 
-namespace frontend\models;
+namespace cms\frontend\models;
 
 use yii;
-use common\models\ArticleContent as CommonModel;
 
-
-class ArticleContent extends CommonModel
+class ArticleContent extends \common\models\ArticleContent
 {
 
     /**

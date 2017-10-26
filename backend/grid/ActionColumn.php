@@ -6,7 +6,7 @@
  * Created at: 2016-03-21 19:55
  */
 
-namespace backend\grid;
+namespace cms\backend\grid;
 
 use Yii;
 use Closure;
@@ -33,7 +33,7 @@ class ActionColumn extends \yii\grid\ActionColumn
     public function init()
     {
         parent::init();
-        $this->header = yii::t('app', $this->header);
+        $this->header = yii::t('cms', $this->header);
         if (! isset($this->headerOptions['width'])) {
             $this->headerOptions['width'] = $this->width;
         }
@@ -49,7 +49,7 @@ class ActionColumn extends \yii\grid\ActionColumn
         if (! isset($this->buttons['view'])) {
             $this->buttons['view'] = function ($url, $model, $key, $index, $gridView) {
                 return Html::a('<i class="fa fa-folder"></i> ' . Yii::t('yii', 'View'), $url, [
-                    'title' => Yii::t('app', 'View'),
+                    'title' => yii::t('cms', 'View'),
                     'data-pjax' => '0',
                     'class' => 'btn btn-white btn-sm',
                 ]);
@@ -68,8 +68,8 @@ class ActionColumn extends \yii\grid\ActionColumn
         }
         if (! isset($this->buttons['update'])) {
             $this->buttons['update'] = function ($url, $model, $key, $index, $gridView) {
-                return Html::a('<i class="fa fa-pencil"></i> ' . Yii::t('app', 'Update'), $url, [
-                    'title' => Yii::t('app', 'Update'),
+                return Html::a('<i class="fa fa-pencil"></i> ' . yii::t('cms', 'Update'), $url, [
+                    'title' => yii::t('cms', 'Update'),
                     'data-pjax' => '0',
                     'class' => 'btn btn-white btn-sm',
                 ]);
@@ -77,9 +77,9 @@ class ActionColumn extends \yii\grid\ActionColumn
         }
         if (! isset($this->buttons['delete'])) {
             $this->buttons['delete'] = function ($url, $model, $key, $index, $gridView) {
-                return Html::a('<i class="glyphicon glyphicon-trash" aria-hidden="true"></i> ' . Yii::t('app', 'Delete'), $url, [
-                    'title' => Yii::t('app', 'Delete'),
-                    'data-confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                return Html::a('<i class="glyphicon glyphicon-trash" aria-hidden="true"></i> ' . yii::t('cms', 'Delete'), $url, [
+                    'title' => yii::t('cms', 'Delete'),
+                    'data-confirm' => yii::t('cms', 'Are you sure you want to delete this item?'),
                     'data-method' => 'post',
                     'data-pjax' => '0',
                     'class' => 'btn btn-white btn-sm',

@@ -1,5 +1,6 @@
 <?php
-namespace backend\tests\unit\models;
+
+namespace cms\backend\tests\unit\models\form;
 
 use yii;
 use backend\models\form\LoginForm as LoginFormOrigin;

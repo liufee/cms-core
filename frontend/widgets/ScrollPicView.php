@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2016-06-19 14:46
  */
-namespace frontend\widgets;
+namespace cms\frontend\widgets;
 
 use yii\helpers\Url;
 

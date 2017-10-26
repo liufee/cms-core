@@ -15,7 +15,7 @@ use yii\helpers\Url;
 use backend\assets\IndexAsset;
 
 IndexAsset::register($this);
-$this->title = yii::t('app', 'Backend Manage System');
+$this->title = yii::t('cms', 'Backend Manage System');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -45,16 +45,16 @@ $this->title = yii::t('app', 'Backend Manage System');
                         </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear">
-                                <span class="block m-t-xs"><strong class="font-bold"><?= yii::t('menu', yii::$app->getUser()->getIdentity()->getRoleName())?></strong></span>
+                                <span class="block m-t-xs"><strong class="font-bold"><?= yii::t('cms', yii::$app->getUser()->getIdentity()->getRoleName())?></strong></span>
                                 <span class="text-muted text-xs block"><?= yii::$app->getUser()->getIdentity()->username ?><b class="caret"></b></span>
                             </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="J_menuItem" href="<?= Url::to(['admin-user/update-self']) ?>"><?= yii::t('app', 'Profile') ?></a></li>
-                            <li><a class="J_menuItem" href="<?= Url::to(['article/index']) ?>"><?= yii::t('app', 'Articles') ?></a></li>
-                            <li><a target="_blank" href="<?= yii::$app->params['site']['url'] ?>"><?= yii::t('app', 'Frontend') ?></a></li>
+                            <li><a class="J_menuItem" href="<?= Url::to(['admin-user/update-self']) ?>"><?= yii::t('cms', 'Profile') ?></a></li>
+                            <li><a class="J_menuItem" href="<?= Url::to(['article/index']) ?>"><?= yii::t('cms', 'Articles') ?></a></li>
+                            <li><a target="_blank" href="<?= yii::$app->params['site']['url'] ?>"><?= yii::t('cms', 'Frontend') ?></a></li>
                             <li class="divider"></li>
-                            <li><a href="<?= Url::toRoute('site/logout') ?>"><?= yii::t('app', 'Logout') ?></a></li>
+                            <li><a href="<?= Url::toRoute('site/logout') ?>"><?= yii::t('cms', 'Logout') ?></a></li>
                         </ul>
                     </div>
                     <div class="logo-element">H+</div>
@@ -95,16 +95,16 @@ $this->title = yii::t('app', 'Backend Manage System');
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="hidden-xs">
-                        <a href="<?= yii::$app->params['site']['url'] ?>" target='_blank'><i class="fa fa-internet-explorer"></i> <?= yii::t('app', 'Frontend') ?></a>
+                        <a href="<?= yii::$app->params['site']['url'] ?>" target='_blank'><i class="fa fa-internet-explorer"></i> <?= yii::t('cms', 'Frontend') ?></a>
                     </li>
                     <li class="hidden-xs">
-                        <a href="javascript:void(0)" onclick="reloadIframe()"><i class="fa fa-refresh"></i> <?= yii::t('app', 'Refresh') ?></a>
+                        <a href="javascript:void(0)" onclick="reloadIframe()"><i class="fa fa-refresh"></i> <?= yii::t('cms', 'Refresh') ?></a>
                     </li>
                     <li class="hidden-xs">
-                        <a href="http://cms.feehi.com/help" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> <?= yii::t('app', 'Support') ?></a>
+                        <a href="http://cms.feehi.com/help" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> <?= yii::t('cms', 'Support') ?></a>
                     </li>
                     <li class="dropdown hidden-xs">
-                        <a class="right-sidebar-toggle" aria-expanded="false"><i class="fa fa-tasks"></i> <?= yii::t('app', 'Theme') ?></a>
+                        <a class="right-sidebar-toggle" aria-expanded="false"><i class="fa fa-tasks"></i> <?= yii::t('cms', 'Theme') ?></a>
                     </li>
                     <li class="hidden-xs">
                         <select onchange="location.href=this.options[this.selectedIndex].value;">
@@ -128,20 +128,20 @@ $this->title = yii::t('app', 'Backend Manage System');
             </button>
             <nav class="page-tabs J_menuTabs">
                 <div class="page-tabs-content">
-                    <a href="javascript:;" class="active J_menuTab" data-id="<?= Url::to(['site/main']) ?>"><?= yii::t('app', 'Home') ?></a>
+                    <a href="javascript:;" class="active J_menuTab" data-id="<?= Url::to(['site/main']) ?>"><?= yii::t('cms', 'Home') ?></a>
                 </div>
             </nav>
             <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i></button>
             <div class="btn-group roll-nav roll-right">
-                <button class="dropdown J_tabClose" data-toggle="dropdown"><?= yii::t('app', 'Close') ?><span class="caret"></span></button>
+                <button class="dropdown J_tabClose" data-toggle="dropdown"><?= yii::t('cms', 'Close') ?><span class="caret"></span></button>
                 <ul role="menu" class="dropdown-menu dropdown-menu-right">
-                    <li class="J_tabShowActive"><a><?= yii::t('app', 'Locate Current Tab') ?></a></li>
+                    <li class="J_tabShowActive"><a><?= yii::t('cms', 'Locate Current Tab') ?></a></li>
                     <li class="divider"></li>
-                    <li class="J_tabCloseAll"><a><?= yii::t('app', 'Close All Tab') ?></a></li>
-                    <li class="J_tabCloseOther"><a><?= yii::t('app', 'Close Other Tab') ?></a></li>
+                    <li class="J_tabCloseAll"><a><?= yii::t('cms', 'Close All Tab') ?></a></li>
+                    <li class="J_tabCloseOther"><a><?= yii::t('cms', 'Close Other Tab') ?></a></li>
                 </ul>
             </div>
-            <?= Html::a('<i class="fa fa fa-sign-out"></i>' . yii::t('app', 'Logout'), Url::toRoute('site/logout'), ['data-method'=>'post', 'class'=>'roll-nav roll-right J_tabExit'])?>
+            <?= Html::a('<i class="fa fa fa-sign-out"></i>' . yii::t('cms', 'Logout'), Url::toRoute('site/logout'), ['data-method'=>'post', 'class'=>'roll-nav roll-right J_tabExit'])?>
         </div>
         <div class="row J_mainContent" id="content-main">
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<?= Url::to(['site/main']) ?>" frameborder="0" data-id="<?= Url::to(['site/main']) ?>" seamless></iframe>
@@ -157,7 +157,7 @@ $this->title = yii::t('app', 'Backend Manage System');
             <ul class="nav nav-tabs navs-3">
                 <li class="active">
                     <a data-toggle="tab" href="#tab-1">
-                        <i class="fa fa-gear"></i> <?=yii::t('app', 'Theme')?>
+                        <i class="fa fa-gear"></i> <?=yii::t('cms', 'Theme')?>
                     </a>
                 </li><!--
                 <li class=""><a data-toggle="tab" href="#tab-2">

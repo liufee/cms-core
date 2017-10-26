@@ -1,4 +1,4 @@
-namespace: frontend\tests
+namespace: cms\frontend\tests
 actor: Tester
 paths:
     tests: tests

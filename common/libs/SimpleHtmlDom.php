@@ -6,7 +6,7 @@
  * Created at: 2016-10-16 17:15
  */
 
-namespace common\libs;
+namespace cms\common\libs;
 
 /**
  * Website: http://sourceforge.net/projects/simplehtmldom/

@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2017-03-15 21:16
  */
-namespace backend\models\form;
+namespace cms\backend\models\form;
 
 use yii;
 use yii\base\Event;
@@ -52,7 +52,7 @@ class ResetPasswordForm extends \yii\base\Model
     public function attributeLabels()
     {
         return [
-            'password' => yii::t('app', 'Password'),
+            'password' => yii::t('cms', 'Password'),
         ];
     }
 

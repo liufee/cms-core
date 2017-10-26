@@ -1,5 +1,5 @@
 <?php
-namespace frontend\tests\functional;
+namespace cms\frontend\tests\functional;
 
 use frontend\tests\FunctionalTester;
 
@@ -9,7 +9,7 @@ class ContactCest
 {
     public function _before(FunctionalTester $I)
     {
-        $I->amOnPage(['site/contact']);
+        $I->amOnPage(['/site/contact']);
     }
 
     public function checkContact(FunctionalTester $I)

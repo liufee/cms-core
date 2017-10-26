@@ -6,7 +6,7 @@
  * Created at: 2017-08-13 00:31
  */
 
-namespace backend\actions;
+namespace cms\backend\actions;
 
 use yii;
 use yii\web\BadRequestHttpException;
@@ -30,10 +30,10 @@ class UpdateAction extends \yii\base\Action
      */
     public function run($id)
     {
-        if (! $id) throw new BadRequestHttpException(yii::t('app', "Id doesn't exit"));
+        if (! $id) throw new BadRequestHttpException(yii::t('cms', "Id doesn't exit"));
         /* @var $model yii\db\ActiveRecord */
         $model = call_user_func([$this->modelClass, 'findOne'], $id);
-        if (! $model) throw new BadRequestHttpException(yii::t('app', "Cannot find model by $id"));
+        if (! $model) throw new BadRequestHttpException(yii::t('cms', "Cannot find model by $id"));
         $model->setScenario( $this->scenario );
 
         if (yii::$app->getRequest()->getIsPost()) {
@@ -41,7 +41,7 @@ class UpdateAction extends \yii\base\Action
                 if( yii::$app->getRequest()->getIsAjax() ){
                     return [];
                 }else {
-                    yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                    yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
                     return $this->controller->redirect(['update', 'id' => $model->getPrimaryKey()]);
                 }
             } else {

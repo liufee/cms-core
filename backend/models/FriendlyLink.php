@@ -6,7 +6,7 @@
  * Created at: 2016-04-07 11:37
  */
 
-namespace backend\models;
+namespace cms\backend\models;
 
 use yii;
 use yii\web\UploadedFile;
@@ -37,7 +37,7 @@ class FriendlyLink extends \common\models\FriendlyLink
             }
             $fullName = $uploadPath . uniqid() . '_' . $upload->baseName . '.' . $upload->extension;
             if (! $upload->saveAs($fullName)) {
-                $this->addError('thumb', yii::t('app', 'Upload {attribute} error', ['attribute' => yii::t('app', 'Thumb')]) . ': ' . $fullName);
+                $this->addError('thumb', yii::t('cms', 'Upload {attribute} error', ['attribute' => yii::t('cms', 'Thumb')]) . ': ' . $fullName);
                 return false;
             }
             $this->image = str_replace(yii::getAlias('@frontend/web'), '', $fullName);

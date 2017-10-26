@@ -6,10 +6,8 @@
  * Created at: 2016-04-02 21:00
  */
 
-namespace frontend\models;
+namespace cms\frontend\models;
 
-use common\models\Article as CommonArticle;
-
-class Article extends CommonArticle
+class Article extends \common\models\Article
 {
 }

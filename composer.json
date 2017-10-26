@@ -1,9 +1,9 @@
 {
-    "name": "feehi/cms",
-    "description": "Feehi CMS Project Template",
+    "name": "feehi/cms-core",
+    "description": "Feehi CMS core",
     "keywords": ["feehicms", "yii2 cms", "cms", "php framework", "yii2 advanced", "project template", "feehi", "php", "php cms"],
     "homepage": "http://cms.feehi.com/",
-    "type": "project",
+    "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "support": {
         "issues": "https://github.com/liufee/cms/issues?state=open",
@@ -34,6 +34,11 @@
         "asset-installer-paths": {
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "cms\\": ""
         }
     },
     "repositories": [

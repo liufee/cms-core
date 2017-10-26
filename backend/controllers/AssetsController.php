@@ -6,7 +6,7 @@
  * Created at: 2017-03-09 22:07
  */
 
-namespace backend\controllers;
+namespace cms\backend\controllers;
 
 use backend\widgets\ueditor\UeditorAction;
 

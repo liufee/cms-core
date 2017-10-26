@@ -6,10 +6,10 @@
  * Created at: 2017-03-15 21:16
  */
 
-use common\widgets\JsBlock;
+use cms\common\widgets\JsBlock;
 
 if (Yii::$app->getSession()->hasFlash('success')) {
-    $successTitle = yii::t('app', 'Success');
+    $successTitle = yii::t('cms', 'Success');
     $info = Yii::$app->getSession()->getFlash('success');
     $str = <<<EOF
        toastr.options = {
@@ -33,7 +33,7 @@ EOF;
     JsBlock::end();
 }
 if (Yii::$app->getSession()->hasFlash('error')) {
-    $errorTitle = yii::t('app', 'Error');
+    $errorTitle = yii::t('cms', 'Error');
     $info = Yii::$app->getSession()->getFlash('error');
     $str = <<<EOF
        toastr.options = {

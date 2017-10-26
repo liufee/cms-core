@@ -6,7 +6,7 @@
  * Created at: 2016-10-16 17:15
  */
 
-namespace common\libs;
+namespace cms\common\libs;
 
 use yii;
 use yii\base\InvalidParamException;
@@ -20,8 +20,8 @@ class Constants
     public static function getYesNoItems($key = null)
     {
         $items = [
-            self::YesNo_Yes => yii::t('app', 'Yes'),
-            self::YesNo_No => yii::t('app', 'No'),
+            self::YesNo_Yes => yii::t('cms', 'Yes'),
+            self::YesNo_No => yii::t('cms', 'No'),
         ];
         return self::getItems($items, $key);
     }
@@ -29,8 +29,8 @@ class Constants
     public static function getWebsiteStatusItems($key = null)
     {
         $items = [
-            self::YesNo_Yes => yii::t('app', 'Opened'),
-            self::YesNo_No => yii::t('app', 'Closed'),
+            self::YesNo_Yes => yii::t('cms', 'Opened'),
+            self::YesNo_No => yii::t('cms', 'Closed'),
         ];
         return self::getItems($items, $key);
     }
@@ -42,9 +42,9 @@ class Constants
     public static function getCommentStatusItems($key = null)
     {
         $items = [
-            self::COMMENT_INITIAL => yii::t('app', 'Not Audited'),
-            self::COMMENT_PUBLISH => yii::t('app', 'Passed'),
-            self::COMMENT_RUBISSH => yii::t('app', 'Unpassed'),
+            self::COMMENT_INITIAL => yii::t('cms', 'Not Audited'),
+            self::COMMENT_PUBLISH => yii::t('cms', 'Passed'),
+            self::COMMENT_RUBISSH => yii::t('cms', 'Unpassed'),
         ];
         return self::getItems($items, $key);
     }
@@ -55,8 +55,8 @@ class Constants
     public static function getTargetOpenMethod($key = null)
     {
         $items = [
-            self::TARGET_BLANK => yii::t('app', 'Yes'),
-            self::TARGET_SELF => yii::t('app', 'No'),
+            self::TARGET_BLANK => yii::t('cms', 'Yes'),
+            self::TARGET_SELF => yii::t('cms', 'No'),
         ];
         return self::getItems($items, $key);
     }
@@ -82,8 +82,8 @@ class Constants
     public static function getArticleStatus($key = null)
     {
         $items = [
-            self::PUBLISH_YES => yii::t('app', 'Publish'),
-            self::PUBLISH_NO => yii::t('app', 'Draft'),
+            self::PUBLISH_YES => yii::t('cms', 'Publish'),
+            self::PUBLISH_NO => yii::t('cms', 'Draft'),
         ];
         return self::getItems($items, $key);
     }
@@ -110,10 +110,10 @@ class Constants
     public static function getArticleVisibility($key = null)
     {
         $items = [
-            self::ARTICLE_VISIBILITY_PUBLIC => yii::t('app', 'Public'),
-            self::ARTICLE_VISIBILITY_COMMENT => yii::t('app', 'Reply'),
-            self::ARTICLE_VISIBILITY_SECRET => yii::t('app', 'Password'),
-            self::ARTICLE_VISIBILITY_LOGIN => yii::t('app', 'Login'),
+            self::ARTICLE_VISIBILITY_PUBLIC => yii::t('cms', 'Public'),
+            self::ARTICLE_VISIBILITY_COMMENT => yii::t('cms', 'Reply'),
+            self::ARTICLE_VISIBILITY_SECRET => yii::t('cms', 'Password'),
+            self::ARTICLE_VISIBILITY_LOGIN => yii::t('cms', 'Login'),
         ];
         return self::getItems($items, $key);
     }
@@ -124,8 +124,8 @@ class Constants
     public static function getStatusItems($key = null)
     {
         $items = [
-            self::Status_Enable => yii::t('app', 'Enable'),
-            self::Status_Desable => yii::t('app', 'Disable'),
+            self::Status_Enable => yii::t('cms', 'Enable'),
+            self::Status_Desable => yii::t('cms', 'Disable'),
         ];
         return self::getItems($items, $key);
     }

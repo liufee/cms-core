@@ -22,7 +22,7 @@ use backend\grid\ActionColumn;
 use backend\models\User;
 
 $assignment = function ($url, $model) {
-    return Html::a('<i class="fa fa-tablet"></i> ' . yii::t('app', 'Assign Roles'), Url::to([
+    return Html::a('<i class="fa fa-tablet"></i> ' . yii::t('cms', 'Assign Roles'), Url::to([
         'assign',
         'uid' => $model['id']
     ]), [
@@ -32,7 +32,7 @@ $assignment = function ($url, $model) {
 };
 
 $this->title = "Admin Users";
-$this->params['breadcrumbs'][] = yii::t('app', 'Admin Users');
+$this->params['breadcrumbs'][] = yii::t('cms', 'Admin Users');
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Admin Users');
                         ],
                         [
                             'attribute' => 'role',
-                            'label' => yii::t('app', 'Role'),
+                            'label' => yii::t('cms', 'Role'),
                             'value' => function ($model) {
                                 return $model->getRoleName();
                             },
@@ -65,12 +65,12 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Admin Users');
                         ],
                         [
                             'attribute' => 'status',
-                            'label' => yii::t('app', 'Status'),
+                            'label' => yii::t('cms', 'Status'),
                             'value' => function ($model) {
                                 if($model->status == User::STATUS_ACTIVE){
-                                    return yii::t('app', 'Normal');
+                                    return yii::t('cms', 'Normal');
                                 }else if( $model->status == User::STATUS_DELETED ){
-                                    return yii::t('app', 'Disabled');
+                                    return yii::t('cms', 'Disabled');
                                 }
                             },
                             'filter' => User::getStatuses(),

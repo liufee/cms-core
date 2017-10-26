@@ -9,7 +9,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use install\assets\AppAsset;
+use cms\install\assets\AppAsset;
 use yii\helpers\Html;
 
 AppAsset::register($this);

@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\models;
+namespace cms\backend\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -55,11 +55,11 @@ class AdminLog extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'route' => Yii::t('app', 'Route'),
-            'description' => Yii::t('app', 'Description'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'user_id' => Yii::t('app', 'User Id'),
+            'id' => yii::t('cms', 'ID'),
+            'route' => yii::t('cms', 'Route'),
+            'description' => yii::t('cms', 'Description'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'user_id' => yii::t('cms', 'User Id'),
         ];
     }
 
@@ -82,13 +82,13 @@ class AdminLog extends \yii\db\ActiveRecord
             '{{%ID%}}',
             '{{%RECORD%}}'
         ], [
-            yii::t('app', 'Admin user'),
-            yii::t('app', 'through'),
-            yii::t('app', 'created'),
-            yii::t('app', 'updated'),
-            yii::t('app', 'deleted'),
-            yii::t('app', 'id'),
-            yii::t('app', 'record')
+            yii::t('cms', 'Admin user'),
+            yii::t('cms', 'through'),
+            yii::t('cms', 'created'),
+            yii::t('cms', 'updated'),
+            yii::t('cms', 'deleted'),
+            yii::t('cms', 'id'),
+            yii::t('cms', 'record')
         ], $this->description);
         $this->description = preg_replace_callback('/\d{10}/', function ($matches) {
             return date('Y-m-d H:i:s', $matches[0]);

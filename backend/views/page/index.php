@@ -23,7 +23,7 @@ use backend\grid\CheckboxColumn;
 use backend\grid\ActionColumn;
 
 $this->title = 'Pages';
-$this->params['breadcrumbs'][] = yii::t('app', 'Pages');
+$this->params['breadcrumbs'][] = yii::t('cms', 'Pages');
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Pages');
                             'value' => function ($model, $key, $index, $column) {
                                 return Html::a(Constants::getArticleStatus($model['status']), ['update', 'id' => $model['id']], [
                                     'class' => 'btn btn-xs btn-rounded ' . ( $model['status'] == Constants::YesNo_Yes ? 'btn-info' : 'btn-default' ),
-                                    'data-confirm' => $model['status'] == Constants::YesNo_Yes ? Yii::t('app', 'Are you sure you want to cancel release?') : Yii::t('app', 'Are you sure you want to publish?'),
+                                    'data-confirm' => $model['status'] == Constants::YesNo_Yes ? yii::t('cms', 'Are you sure you want to cancel release?') : yii::t('cms', 'Are you sure you want to publish?'),
                                     'data-method' => 'post',
                                     'data-pjax' => '0',
                                     'data-params' => [
@@ -105,11 +105,11 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Pages');
                             'class' => ActionColumn::className(),
                             'buttons' => [
                                 'comment' => function ($url, $model, $key) {
-                                    return Html::a('<i class="fa  fa-commenting-o" aria-hidden="true"></i> ' . Yii::t('app', 'Comments'), Url::to([
+                                    return Html::a('<i class="fa  fa-commenting-o" aria-hidden="true"></i> ' . yii::t('cms', 'Comments'), Url::to([
                                         'comment/index',
                                         'CommentSearch[aid]' => $model->id
                                     ]), [
-                                        'title' => Yii::t('app', 'Comments'),
+                                        'title' => yii::t('cms', 'Comments'),
                                         'data-pjax' => '0',
                                         'class' => 'btn btn-white btn-sm openContab',
                                     ]);

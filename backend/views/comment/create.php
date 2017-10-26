@@ -8,8 +8,8 @@
 use yii\helpers\Url;
 
 $this->params['breadcrumbs'] = [
-    ['label' => yii::t('app', 'Comments'), 'url' => Url::to(['index'])],
-    ['label' => yii::t('app', 'Create') . yii::t('app', 'Comments')],
+    ['label' => yii::t('cms', 'Comments'), 'url' => Url::to(['index'])],
+    ['label' => yii::t('cms', 'Create') . yii::t('cms', 'Comments')],
 ];
 /**
  * @var $model backend\models\Comment

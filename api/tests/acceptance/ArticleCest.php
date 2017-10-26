@@ -1,7 +1,7 @@
 <?php
-namespace api\tests;
+namespace cms\api\tests\acceptance;
+
 use api\tests\AcceptanceTester;
-use yii\helpers\Url;
 
 class ArticleCest
 {

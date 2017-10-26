@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace frontend\assets;
+namespace cms\frontend\assets;
 
 class AppAsset extends \yii\web\AssetBundle
 {

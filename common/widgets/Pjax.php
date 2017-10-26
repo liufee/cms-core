@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\widgets;
+namespace cms\common\widgets;
 
 use feehi\assets\PjaxAsset;
 use yii\helpers\Json;

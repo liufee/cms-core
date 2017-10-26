@@ -6,7 +6,7 @@
  * Created at: 2016-03-21 19:36
  */
 
-namespace backend\grid;
+namespace cms\backend\grid;
 
 use yii;
 use common\libs\Constants;
@@ -45,7 +45,7 @@ class StatusColumn extends DataColumn
         parent::init();
 
         if( $this->label == 'label' ){
-            $this->label = yii::t('app', 'Status');
+            $this->label = yii::t('cms', 'Status');
         }
 
         if( empty($this->aOptions) ){
@@ -86,7 +86,7 @@ class StatusColumn extends DataColumn
                 }
                 if( !isset( $this->aOptions['data-confirm'] ) ){
                     $aOptions = array_merge([
-                        'data-confirm' => $model[$field] == Constants::YesNo_Yes ? Yii::t('app', 'Are you sure you want to disable this item?') : Yii::t('app', 'Are you sure you want to enable this item?'),
+                        'data-confirm' => $model[$field] == Constants::YesNo_Yes ? yii::t('cms', 'Are you sure you want to disable this item?') : yii::t('cms', 'Are you sure you want to enable this item?'),
                     ],$this->aOptions, $aOptions);
                 }
             }

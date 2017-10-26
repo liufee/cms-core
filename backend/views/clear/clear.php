@@ -11,13 +11,13 @@ use common\widgets\JsBlock;
  * @var $this yii\web\View
  */
 
-$this->title = yii::t('app', 'Clear Backend');
+$this->title = yii::t('cms', 'Clear Backend');
 ?>
 <div class="row">
     <div class="col-sm-12">
         <div class="ibox">
             <div class="ibox-content">
-                <?= yii::t('app', 'Success') ?>
+                <?= yii::t('cms', 'Success') ?>
             </div>
         </div>
     </div>

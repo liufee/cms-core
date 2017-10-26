@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\widgets;
+namespace cms\backend\widgets;
 
 use Yii;
 use yii\base\InvalidCallException;
@@ -34,8 +34,8 @@ class ActiveForm extends \yii\widgets\ActiveForm
         $options['size'] = isset($options['size']) ? $options['size'] : 4;
         return '<div class="form-group">
                                 <div class="col-sm-' . $options['size'] . ' col-sm-offset-2">
-                                    <button class="btn btn-primary" type="submit">' . Yii::t('app', 'Save') . '</button>
-                                    <button class="btn btn-white" type="reset">' . Yii::t('app', 'Reset') . '</button>
+                                    <button class="btn btn-primary" type="submit">' . yii::t('cms', 'Save') . '</button>
+                                    <button class="btn btn-white" type="reset">' . yii::t('cms', 'Reset') . '</button>
                                 </div>
                             </div>';
     }

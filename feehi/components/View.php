@@ -6,7 +6,7 @@
  * Created at: 2016-12-25 21:58
  */
 
-namespace feehi\components;
+namespace cms\feehi\components;
 
 use feehi\assets\JqueryAsset;
 

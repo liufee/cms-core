@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace feehi\assets;
+namespace cms\feehi\assets;
 
 class YiiAsset extends \yii\web\AssetBundle
 {

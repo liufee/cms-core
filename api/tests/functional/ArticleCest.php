@@ -1,6 +1,6 @@
 <?php
 
-namespace api\tests\functional;
+namespace cms\api\tests\functional;
 
 use api\tests\FunctionalTester;
 

@@ -6,7 +6,7 @@
  * Created at: 2017-01-04 09:44
  */
 
-namespace feehi\assets;
+namespace cms\feehi\assets;
 
 class CaptchaAsset extends \yii\web\AssetBundle
 {

@@ -1,11 +1,12 @@
 <?php
+
 /**
  * Author: lf
  * Blog: https://blog.feehi.com
  * Email: job@feehi.com
  * Created at: 2017-08-13 00:06
  */
-namespace backend\actions;
+namespace cms\backend\actions;
 
 use yii;
 
@@ -31,7 +32,7 @@ class CreateAction extends \yii\base\Action
         $model->setScenario( $this->scenario );
         if (yii::$app->getRequest()->getIsPost()) {
             if ($model->load(yii::$app->getRequest()->post()) && $model->save()) {
-                yii::$app->getSession()->setFlash('success', yii::t('app', 'Success'));
+                yii::$app->getSession()->setFlash('success', yii::t('cms', 'Success'));
                 return $this->controller->redirect(['index']);
             } else {
                 $errors = $model->getErrors();

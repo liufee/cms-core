@@ -6,36 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-/**
- * UEditor Widget扩展
- * @author xbzbing<xbzbing@gmail.com>
- * @link www.crazydb.com
- *
- * UEditor版本v1.4.3.1
- * Yii版本2.0+
- *
- * 使用方法:
- * 1、AR
- *
- * <?=$form->field($model, 'content')->widget(\backend\widgets\Ueditor::className())?>
- *
- * 或者
- *
- * <?=\backend\widgets\Ueditor::widget([
- *      'model' => $model,
- *      'attribute' => 'content',
- * ])?>
- *
- *
- * 2、普通表单
- *
- * <?=\backend\widgets\Ueditor::widget([
- *      'name' => $name,
- *      'value' => $value,
- * ])>
- */
-
-namespace backend\widgets;
+namespace cms\backend\widgets;
 
 use yii;
 use yii\helpers\Html;

@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\models\form;
+namespace cms\backend\models\form;
 
 use Yii;
 use yii\base\Model;
@@ -35,7 +35,7 @@ class PasswordResetRequestForm extends Model
                 'exist',
                 'targetClass' => User::className(),
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => yii::t('app', 'There is no user with such email.')
+                'message' => yii::t('cms', 'There is no user with such email.')
             ],
         ];
     }
@@ -46,7 +46,7 @@ class PasswordResetRequestForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => yii::t('app', 'Email'),
+            'email' => yii::t('cms', 'Email'),
         ];
     }
 

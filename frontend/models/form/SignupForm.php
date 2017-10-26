@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2017-03-15 21:16
  */
-namespace frontend\models\form;
+namespace cms\frontend\models\form;
 
 use yii;
 use common\models\User;
@@ -36,7 +36,7 @@ class SignupForm extends Model
                 'username',
                 'unique',
                 'targetClass' => User::className(),
-                'message' => yii::t('frontend', 'This username has already been taken')
+                'message' => yii::t('cms', 'This username has already been taken')
             ],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
@@ -48,7 +48,7 @@ class SignupForm extends Model
                 'email',
                 'unique',
                 'targetClass' => User::className(),
-                'message' => yii::t('frontend', 'This email address has already been taken')
+                'message' => yii::t('cms', 'This email address has already been taken')
             ],
 
             ['password', 'required'],
@@ -62,15 +62,15 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => yii::t('app', 'Username'),
-            'email' => yii::t('app', 'Email'),
-            'old_password' => yii::t('app', 'Old Password'),
-            'password' => yii::t('app', 'Password'),
-            'repassword' => yii::t('app', 'Repeat Password'),
-            'avatar' => yii::t('app', 'Avatar'),
-            'created_at' => yii::t('app', 'Created At'),
-            'updated_at' => yii::t('app', 'Updated At'),
-            'rememberMe' => yii::t('frontend', 'Remember Me'),
+            'username' => yii::t('cms', 'Username'),
+            'email' => yii::t('cms', 'Email'),
+            'old_password' => yii::t('cms', 'Old Password'),
+            'password' => yii::t('cms', 'Password'),
+            'repassword' => yii::t('cms', 'Repeat Password'),
+            'avatar' => yii::t('cms', 'Avatar'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
+            'rememberMe' => yii::t('cms', 'Remember Me'),
         ];
     }
 

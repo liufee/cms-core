@@ -22,7 +22,7 @@ use backend\grid\ActionColumn;
 
 $this->title = "Admin Log";
 
-$this->params['breadcrumbs'][] = yii::t('app', 'Admin Log');
+$this->params['breadcrumbs'][] = yii::t('cms', 'Admin Log');
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Admin Log');
                             'attribute' => 'id',
                         ],
                         [
-                            'label' => Yii::t('app', 'Admin'),
+                            'label' => yii::t('cms', 'Admin'),
                             'attribute' => 'user_username',
                             'value' => 'user.username',
                             'filter' => Html::activeTextInput($searchModel, 'user_username', ['class' => 'form-control'])

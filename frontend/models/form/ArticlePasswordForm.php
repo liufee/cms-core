@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2017-09-04 22:59
  */
-namespace frontend\models\form;
+namespace cms\frontend\models\form;
 
 use frontend\models\Article;
 use yii;
@@ -24,7 +24,7 @@ class ArticlePasswordForm extends \yii\base\Model
     public function attributeLabels()
     {
         return [
-            "password" => yii::t('app', 'Password'),
+            "password" => yii::t('cms', 'Password'),
         ];
     }
 
@@ -35,7 +35,7 @@ class ArticlePasswordForm extends \yii\base\Model
             $session->set("article_password_" . $id, true);
             return true;
         }
-        $this->addError('password', yii::t('frontend', 'Password error'));
+        $this->addError('password', yii::t('cms', 'Password error'));
         return false;
     }
 }

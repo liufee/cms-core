@@ -6,7 +6,7 @@
  * Created at: 2016-04-02 22:48
  */
 
-namespace frontend\controllers;
+namespace cms\frontend\controllers;
 
 use yii;
 use common\libs\Constants;
@@ -35,7 +35,7 @@ class ArticleController extends Controller
                 'lastModified' => function ($action, $params) {
                     $id = yii::$app->getRequest()->get('id');
                     $article = Article::findOne(['id' => $id]);
-                    if( $article === null ) throw new NotFoundHttpException(yii::t("frontend", "Article id {id} is not exists", ['id' => $id]));
+                    if( $article === null ) throw new NotFoundHttpException(yii::t('cms', "Article id {id} is not exists", ['id' => $id]));
                     Article::updateAllCounters(['scan_count' => 1], ['id' => $id]);
                     if($article->visibility == Constants::ARTICLE_VISIBILITY_PUBLIC) return $article->updated_at;
                 },
@@ -52,16 +52,17 @@ class ArticleController extends Controller
      */
     public function actionIndex($cat = '')
     {
+        yii::$app->setViewPath('@cms/frontend/views');
         if ($cat == '') {
             $cat = yii::$app->getRequest()->getPathInfo();
         }
         $where = ['type' => Article::ARTICLE, 'status' => Article::ARTICLE_PUBLISHED];
         if ($cat != '' && $cat != 'index') {
-            if ($cat == yii::t('app', 'uncategoried')) {
+            if ($cat == yii::t('cms', 'uncategoried')) {
                 $where['cid'] = 0;
             } else {
                 if (! $category = Category::findOne(['alias' => $cat])) {
-                    throw new NotFoundHttpException(yii::t('frontend', 'None category named {name}', ['name' => $cat]));
+                    throw new NotFoundHttpException(yii::t('cms', 'None category named {name}', ['name' => $cat]));
                 }
                 $where['cid'] = $category['id'];
             }
@@ -79,7 +80,7 @@ class ArticleController extends Controller
         ]);
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'type' => ( !empty($cat) ? yii::t('frontend', 'Category {cat} articles', ['cat'=>$cat]) : yii::t('frontend', 'Latest Articles') ),
+            'type' => ( !empty($cat) ? yii::t('cms', 'Category {cat} articles', ['cat'=>$cat]) : yii::t('cms', 'Latest Articles') ),
         ]);
     }
 
@@ -120,7 +121,7 @@ class ArticleController extends Controller
                     $result = Comment::find()->where(['aid'=>$model->id, 'uid'=>yii::$app->getUser()->getId()])->one();
                 }
                 if( $result === null ) {
-                    $model->content = "<p style='color: red'>" . yii::t('frontend', "Only commented user can visit this article") . "</p>";
+                    $model->content = "<p style='color: red'>" . yii::t('cms', "Only commented user can visit this article") . "</p>";
                 }else{
                     $model->content = ArticleContent::findOne(['aid'=>$model->id])['content'];
                 }
@@ -132,7 +133,7 @@ class ArticleController extends Controller
                 break;
             case Constants::ARTICLE_VISIBILITY_LOGIN:
                 if( yii::$app->getUser()->getIsGuest() ) {
-                    $model->content = "<p style='color: red'>" . yii::t('frontend', "Only login user can visit this article") . "</p>";
+                    $model->content = "<p style='color: red'>" . yii::t('cms', "Only login user can visit this article") . "</p>";
                 }else{
                     $model->content = ArticleContent::findOne(['aid'=>$model->id])['content'];
                 }
@@ -169,7 +170,7 @@ class ArticleController extends Controller
                 }
                 $tips = '';
                 if (yii::$app->feehi->website_comment_need_verify) {
-                    $tips = "<span class='c-approved'>" . yii::t('frontend', 'Comment waiting for approved.') . "</span><br />";
+                    $tips = "<span class='c-approved'>" . yii::t('cms', 'Comment waiting for approved.') . "</span><br />";
                 }
                 $commentModel->afterFind();
                 return "
@@ -177,7 +178,7 @@ class ArticleController extends Controller
                     <div class='c-avatar'><img src='{$avatar}' class='avatar avatar-108' height='50' width='50'>
                         <div class='c-main' id='div-comment-{$commentModel->id}'><p>{$commentModel->content}</p>
                             {$tips}
-                            <div class='c-meta'><span class='c-author'><a href='{$commentModel->website_url}' rel='external nofollow' class='url'>{$commentModel->nickname}</a></span>  (" . yii::t('frontend', 'a minutes ago') . ")</div>
+                            <div class='c-meta'><span class='c-author'><a href='{$commentModel->website_url}' rel='external nofollow' class='url'>{$commentModel->nickname}</a></span>  (" . yii::t('cms', 'a minutes ago') . ")</div>
                         </div>
                     </div>";
             } else {

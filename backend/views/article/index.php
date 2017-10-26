@@ -26,7 +26,7 @@ use backend\grid\ActionColumn;
 use backend\grid\StatusColumn;
 
 $this->title = 'Articles';
-$this->params['breadcrumbs'][] = yii::t('app', 'Articles');
+$this->params['breadcrumbs'][] = yii::t('cms', 'Articles');
 
 ?>
 <style>
@@ -53,9 +53,9 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Articles');
                         ],
                         [
                             'attribute' => 'cid',
-                            'label' => yii::t('app', 'Category'),
+                            'label' => yii::t('cms', 'Category'),
                             'value' => function ($model) {
-                                return $model->category ? $model->category->name : yii::t('app', 'uncategoried');
+                                return $model->category ? $model->category->name : yii::t('cms', 'uncategoried');
                             },
                             'filter' => Category::getCategoriesName(),
                         ],
@@ -126,7 +126,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Articles');
                             'value' => function ($model, $key, $index, $column) {
                                 return Html::a(Constants::getArticleStatus($model['status']), ['update', 'id' => $model['id']], [
                                     'class' => 'btn btn-xs btn-rounded ' . ( $model['status'] == Constants::YesNo_Yes ? 'btn-info' : 'btn-default' ),
-                                    'data-confirm' => $model['status'] == Constants::YesNo_Yes ? Yii::t('app', 'Are you sure you want to cancel release?') : Yii::t('app', 'Are you sure you want to publish?'),
+                                    'data-confirm' => $model['status'] == Constants::YesNo_Yes ? yii::t('cms', 'Are you sure you want to cancel release?') : yii::t('cms', 'Are you sure you want to publish?'),
                                     'data-method' => 'post',
                                     'data-pjax' => '0',
                                     'data-params' => [
@@ -166,11 +166,11 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Articles');
                             'class' => ActionColumn::className(),
                             'buttons' => [
                                 'comment' => function ($url, $model, $key) {
-                                    return Html::a('<i class="fa  fa-commenting-o" aria-hidden="true"></i> ' . Yii::t('app', 'Comments'), Url::to([
+                                    return Html::a('<i class="fa  fa-commenting-o" aria-hidden="true"></i> ' . yii::t('cms', 'Comments'), Url::to([
                                         'comment/index',
                                         'CommentSearch[aid]' => $model->id
                                     ]), [
-                                        'title' => Yii::t('app', 'Comments'),
+                                        'title' => yii::t('cms', 'Comments'),
                                         'data-pjax' => '0',
                                         'class' => 'btn btn-white btn-sm openContab',
                                     ]);
@@ -192,7 +192,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Articles');
         }, 200);
         var url = $(this).attr('img');
         if (url.length == 0) {
-            layer.tips('<?=yii::t('app', 'No picture')?>', $(this));
+            layer.tips('<?=yii::t('cms', 'No picture')?>', $(this));
         } else {
             layer.tips('<img src=' + url + '>', $(this));
         }

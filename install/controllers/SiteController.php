@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace install\controllers;
+namespace cms\install\controllers;
 
 use Yii;
 use yii\base\Exception;

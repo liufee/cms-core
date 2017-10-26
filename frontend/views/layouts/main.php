@@ -10,9 +10,9 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use frontend\assets\AppAsset;
+use cms\frontend\assets\AppAsset;
 use yii\helpers\Url;
-use frontend\widgets\MenuView;
+use cms\frontend\widgets\MenuView;
 
 AppAsset::register($this);
 
@@ -50,20 +50,20 @@ AppAsset::register($this);
                         <?php
                         if (yii::$app->user->isGuest) {
                             ?>
-                            <a href="<?= Url::to(['site/login']) ?>" class="signin-loader"><?= yii::t('frontend', 'Hi, Log in') ?></a>&nbsp; &nbsp;
-                            <a href="<?= Url::to(['site/signup']) ?>" class="signup-loader"><?= yii::t('frontend', 'Sign up') ?></a>
+                            <a href="<?= Url::to(['site/login']) ?>" class="signin-loader"><?= yii::t('cms', 'Hi, Log in') ?></a>&nbsp; &nbsp;
+                            <a href="<?= Url::to(['site/signup']) ?>" class="signup-loader"><?= yii::t('cms', 'Sign up') ?></a>
                         <?php } else { ?>
                             Welcome, <?= Html::encode(yii::$app->user->identity->username) ?>
-                            <a href="<?= Url::to(['site/logout']) ?>" class="signup-loader"><?= yii::t('frontend', 'Log out') ?></a>
+                            <a href="<?= Url::to(['site/logout']) ?>" class="signup-loader"><?= yii::t('cms', 'Log out') ?></a>
                         <?php } ?>
                     </span>
                 </span>
             </div>
             <div class="menu-container">
                 <ul id="menu-page" class="top-menu">
-                    <a target="_blank" href="/about"><?= yii::t('frontend', 'About us') ?></a>
+                    <a target="_blank" href="/about"><?= yii::t('cms', 'About us') ?></a>
                     |
-                    <a target="_blank" href="/contact"><?= yii::t('frontend', 'Contact us') ?></a>
+                    <a target="_blank" href="/contact"><?= yii::t('cms', 'Contact us') ?></a>
                 </ul>
             </div>
         </div>
@@ -97,15 +97,15 @@ AppAsset::register($this);
 <div id="search-main">
     <div id="searchbar">
         <form id="searchform" action="<?= Url::to('/search') ?>" method="get">
-            <input id="s" type="text" name="q" value="<?= Html::encode(yii::$app->request->get('q')) ?>" required="" placeholder="<?= yii::t('frontend', 'Please input keywords') ?>" name="s" value="">
-            <button id="searchsubmit" type="submit"><?= yii::t('frontend', 'Search') ?></button>
+            <input id="s" type="text" name="q" value="<?= Html::encode(yii::$app->request->get('q')) ?>" required="" placeholder="<?= yii::t('cms', 'Please input keywords') ?>" name="s" value="">
+            <button id="searchsubmit" type="submit"><?= yii::t('cms', 'Search') ?></button>
         </form>
     </div>
     <div id="searchbar">
         <form id="searchform" target="_blank" action="https://www.baidu.com/s" method="get">
             <input type="hidden" name="entry" value="1">
-            <input class="swap_value" name="w" placeholder="<?= yii::t('frontend', 'Please input keywords') ?>">
-            <button id="searchsubmit" type="submit"><?= yii::t('frontend', 'Baidu') ?></button>
+            <input class="swap_value" name="w" placeholder="<?= yii::t('cms', 'Please input keywords') ?>">
+            <button id="searchsubmit" type="submit"><?= yii::t('cms', 'Baidu') ?></button>
         </form>
     </div>
     <div class="clear"></div>
@@ -118,15 +118,15 @@ AppAsset::register($this);
 
 <div class="branding branding-black">
     <div class="container_f">
-        <h2><?= yii::t('frontend', 'Effective,Professional,Conform to SEO') ?></h2>
-        <a class="btn btn-lg" href="http://www.feehi.com/contact" target="_blank"><?= yii::t('frontend', 'Contact us') ?></a>
+        <h2><?= yii::t('cms', 'Effective,Professional,Conform to SEO') ?></h2>
+        <a class="btn btn-lg" href="http://www.feehi.com/contact" target="_blank"><?= yii::t('cms', 'Contact us') ?></a>
     </div>
 </div>
 
 <footer class="footer">
     <div class="footer-inner">
         <p>
-            <a href="http://www.feehi.com/" title="Feehi CMS">Feehi CMS</a> <?= yii::t('frontend', 'Copyright, all rights reserved') ?> © 2015-<?=date('Y')?>&nbsp;&nbsp;
+            <a href="http://www.feehi.com/" title="Feehi CMS">Feehi CMS</a> <?= yii::t('cms', 'Copyright, all rights reserved') ?> © 2015-<?=date('Y')?>&nbsp;&nbsp;
             <select onchange="location.href=this.options[this.selectedIndex].value;" style="height: 30px">
                 <option <?php if (yii::$app->language == 'zh-CN') {echo 'selected';} ?> value="<?= Url::to(['site/language', 'lang' => 'zh-CN']) ?>">简体中文</option>
                 <option <?php if (yii::$app->language == 'en-US') {echo "selected";} ?> value="<?= Url::to(['site/language', 'lang' => 'en-US']) ?>">English</option>

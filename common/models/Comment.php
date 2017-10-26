@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -66,18 +66,18 @@ class Comment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'aid' => Yii::t('app', 'Aid'),
-            'uid' => Yii::t('app', 'Uid'),
-            'nickname' => Yii::t('app', 'Nickname'),
-            'content' => Yii::t('app', 'Content'),
-            'reply_to' => Yii::t('app', 'Replay To'),
-            'ip' => Yii::t('app', 'Ip'),
-            'status' => Yii::t('app', 'Status'),
-            'email' => Yii::t('app', 'Email'),
-            'website_url' => Yii::t('app', 'Website'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => yii::t('cms', 'ID'),
+            'aid' => yii::t('cms', 'Aid'),
+            'uid' => yii::t('cms', 'Uid'),
+            'nickname' => yii::t('cms', 'Nickname'),
+            'content' => yii::t('cms', 'Content'),
+            'reply_to' => yii::t('cms', 'Replay To'),
+            'ip' => yii::t('cms', 'Ip'),
+            'status' => yii::t('cms', 'Status'),
+            'email' => yii::t('cms', 'Email'),
+            'website_url' => yii::t('cms', 'Website'),
+            'created_at' => yii::t('cms', 'Created At'),
+            'updated_at' => yii::t('cms', 'Updated At'),
         ];
     }
 

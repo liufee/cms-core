@@ -21,7 +21,7 @@ use backend\grid\CheckboxColumn;
 use backend\grid\ActionColumn;
 
 $this->title = "Category";
-$this->params['breadcrumbs'][] = yii::t('app', 'Category');
+$this->params['breadcrumbs'][] = yii::t('cms', 'Category');
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Category');
                         ],
                         [
                             'attribute' => 'name',
-                            'label' => yii::t('app', 'Name'),
+                            'label' => yii::t('cms', 'Name'),
                             'format' => 'html',
                             'value' => function ($model, $key, $index, $column) {
                                 return str_repeat('--', $model['level']) . $model['name'];
@@ -48,30 +48,30 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Category');
                         ],
                         [
                             'attribute' => 'alias',
-                            'label' => yii::t('app', 'Alias'),
+                            'label' => yii::t('cms', 'Alias'),
                         ],
                         [
                             'class' => SortColumn::className()
                         ],
                         [
                             'class' => DateColumn::className(),
-                            'label' => yii::t('app', 'Created At'),
+                            'label' => yii::t('cms', 'Created At'),
                             'attribute' => 'created_at',
                         ],
                         [
                             'class' => DateColumn::className(),
-                            'label' => yii::t('app', 'Updated At'),
+                            'label' => yii::t('cms', 'Updated At'),
                             'attribute' => 'updated_at',
                         ],
                         [
                             'class' => ActionColumn::className(),
                             'buttons' => [
                                 'create' => function ($url, $model, $key) {
-                                    return Html::a('<i class="fa  fa-plus" aria-hidden="true"></i> ' . Yii::t('app', 'Create'), Url::to([
+                                    return Html::a('<i class="fa  fa-plus" aria-hidden="true"></i> ' . yii::t('cms', 'Create'), Url::to([
                                         'create',
                                         'parent_id' => $model['id']
                                     ]), [
-                                        'title' => Yii::t('app', 'Create'),
+                                        'title' => yii::t('cms', 'Create'),
                                         'data-pjax' => '0',
                                         'class' => 'btn btn-white btn-sm J_menuItem',
                                     ]);

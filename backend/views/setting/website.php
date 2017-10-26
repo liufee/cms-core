@@ -14,8 +14,8 @@
 use backend\widgets\ActiveForm;
 use common\libs\Constants;
 
-$this->title = yii::t('app', 'Website Setting');
-$this->params['breadcrumbs'][] = yii::t('app', 'Website Setting');
+$this->title = yii::t('cms', 'Website Setting');
+$this->params['breadcrumbs'][] = yii::t('cms', 'Website Setting');
 ?>
 <div class="row">
     <div class="col-sm-12">

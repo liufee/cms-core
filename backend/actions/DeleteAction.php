@@ -6,7 +6,7 @@
  * Created at: 2017-08-13 01:08
  */
 
-namespace backend\actions;
+namespace cms\backend\actions;
 
 use yii;
 use yii\web\BadRequestHttpException;
@@ -29,7 +29,7 @@ class DeleteAction extends \yii\base\Action
     {
         if (yii::$app->getRequest()->getIsAjax()) {//AJAX删除
             if (! $id) {
-                throw new BadRequestHttpException(yii::t('app', "Id doesn't exit"));
+                throw new BadRequestHttpException(yii::t('cms', "Id doesn't exit"));
             }
             $ids = explode(',', $id);
             $errorIds = [];
@@ -58,7 +58,7 @@ class DeleteAction extends \yii\base\Action
             }
         } else {
             if (! $id) {
-                throw new BadRequestHttpException(yii::t('app', "Id doesn't exit"));
+                throw new BadRequestHttpException(yii::t('cms', "Id doesn't exit"));
             }
             $model = call_user_func([$this->modelClass, 'findOne'], $id);
             if ($model) {

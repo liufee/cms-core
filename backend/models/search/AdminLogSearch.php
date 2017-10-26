@@ -6,11 +6,11 @@
  * Created at: 2016-04-01 23:29
  */
 
-namespace backend\models\search;
+namespace cms\backend\models\search;
 
 use yii\data\ActiveDataProvider;
 
-class AdminLogSearch extends \backend\models\AdminLog
+class AdminLogSearch extends \cms\backend\models\AdminLog
 {
 
     public $user_username;

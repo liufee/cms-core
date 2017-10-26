@@ -6,7 +6,7 @@
  * Created at: 2017-08-13 10:00
  */
 
-namespace backend\actions;
+namespace cms\backend\actions;
 
 use yii;
 

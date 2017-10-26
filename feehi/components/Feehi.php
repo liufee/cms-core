@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace feehi\components;
+namespace cms\feehi\components;
 
 use backend\components\CustomLog;
 use yii;
@@ -17,6 +17,7 @@ use yii\caching\FileDependency;
 use yii\base\Event;
 use yii\db\BaseActiveRecord;
 use yii\web\Response;
+use common\helpers\FileDependencyHelper;
 
 class Feehi extends Component
 {
@@ -44,7 +45,7 @@ class Feehi extends Component
                 'autoload' => 1
             ])->asArray()->indexBy("name")->all();
             $cacheDependencyObject = yii::createObject([
-                'class' => 'common\helpers\FileDependencyHelper',
+                'class' => FileDependencyHelper::className(),
                 'rootDir' => '@backend/runtime/cache/file_dependency/',
                 'fileName' => 'options.txt',
             ]);

@@ -8,10 +8,10 @@
 
 /**
  * @var $this yii\web\View
- * @var $model frontend\models\Article
+ * @var $model cms\frontend\models\Article
  */
 
-use frontend\models\Article;
+use cms\frontend\models\Article;
 
 $this->title = $model->title . '-' . yii::$app->feehi->website_title;
 

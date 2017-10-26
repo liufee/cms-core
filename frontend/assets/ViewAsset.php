@@ -6,7 +6,7 @@
  * Created at: 2016-08-12 15:25
  */
 
-namespace frontend\assets;
+namespace cms\frontend\assets;
 
 class ViewAsset extends \yii\web\AssetBundle
 {

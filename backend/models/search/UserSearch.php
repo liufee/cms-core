@@ -6,11 +6,11 @@
  * Created at: 2016-04-02 10:07
  */
 
-namespace backend\models\search;
+namespace cms\backend\models\search;
 
 use yii\data\ActiveDataProvider;
 
-class UserSearch extends \backend\models\User
+class UserSearch extends \cms\backend\models\User
 {
     public $create_start_at;
 

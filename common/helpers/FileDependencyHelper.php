@@ -6,7 +6,7 @@
  * Created at: 2016-10-16 17:15
  */
 
-namespace common\helpers;
+namespace cms\common\helpers;
 
 use yii;
 use yii\helpers\FileHelper;

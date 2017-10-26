@@ -6,7 +6,7 @@
  * Email: job@feehi.com
  * Created at: 2017-08-24 21:52
  */
-namespace backend\fixtures;
+namespace cms\backend\fixtures;
 
 use yii\test\ActiveFixture;
 

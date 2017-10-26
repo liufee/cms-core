@@ -15,8 +15,8 @@ use backend\widgets\ActiveForm;
 use common\widgets\JsBlock;
 use yii\helpers\Url;
 
-$this->title = yii::t('app', 'SMTP Setting');
-$this->params['breadcrumbs'][] = yii::t('app', 'SMTP Setting');
+$this->title = yii::t('cms', 'SMTP Setting');
+$this->params['breadcrumbs'][] = yii::t('cms', 'SMTP Setting');
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -38,9 +38,9 @@ $this->params['breadcrumbs'][] = yii::t('app', 'SMTP Setting');
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                        <button class="btn btn-primary" type="submit"><?= Yii::t('app', 'Save') ?></button>
-                        <button id="test" class="btn btn-success" type="button"><?= Yii::t('app', 'Test') ?></button>
-                        <button class="btn btn-white" type="reset"><?= Yii::t('app', 'Reset') ?></button>
+                        <button class="btn btn-primary" type="submit"><?= yii::t('cms', 'Save') ?></button>
+                        <button id="test" class="btn btn-success" type="button"><?= yii::t('cms', 'Test') ?></button>
+                        <button class="btn btn-white" type="reset"><?= yii::t('cms', 'Reset') ?></button>
                     </div>
                 </div>
                 <?php ActiveForm::end(); ?>
@@ -53,14 +53,14 @@ $this->params['breadcrumbs'][] = yii::t('app', 'SMTP Setting');
 <script>
     $(document).ready(function () {
         $("#test").click(function () {
-            layer.msg('<?=Yii::t('app', 'Loading, hold on please...')?>', {icon: 16, 'time': 0});
+            layer.msg('<?=yii::t('cms', 'Loading, hold on please...')?>', {icon: 16, 'time': 0});
             $.ajax({
                 url: '<?=Url::to(['test-smtp'])?>',
                 method: 'post',
                 data: $("form").serialize(),
                 success: function (data) {
                     if (data == '1') {
-                        layer.msg("<?=yii::t('app', 'Success')?>");
+                        layer.msg("<?=yii::t('cms', 'Success')?>");
                     } else {
                         layer.msg(data);
                     }

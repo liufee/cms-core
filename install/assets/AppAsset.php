@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace install\assets;
+namespace cms\install\assets;
 
 use yii\web\AssetBundle;
 
@@ -14,7 +14,7 @@ class AppAsset extends AssetBundle
 {
 
     public $baseUrl = '@web';
-    public $sourcePath = '@install/static';
+    public $sourcePath = '@cms/install/static';
     public $css = [
         'css/theme.min.css',
         'css/install.css',
@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
         'js/ajaxForm.js',
     ];
     public $depends = [
-        'feehi\assets\JqueryAsset',
-        'install\assets\LayerAsset',
+        'cms\feehi\assets\JqueryAsset',
+        'cms\install\assets\LayerAsset',
     ];
 }

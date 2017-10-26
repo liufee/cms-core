@@ -6,14 +6,14 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\models;
+namespace cms\backend\models;
 
 use yii;
 use yii\helpers\Url;
 use common\helpers\FileDependencyHelper;
 use common\helpers\FamilyTree;
 
-class Menu extends \common\models\Menu
+class Menu extends \cms\common\models\Menu
 {
 
     /**
@@ -60,7 +60,7 @@ class Menu extends \common\models\Menu
                 $arrow = ' arrow';
                 $class = '';
             }
-            $menu_name = yii::t('menu', $menu['name']);
+            $menu_name = yii::t('cms-menu', $menu['name']);
             $lis .= <<<EOF
                     <li>
                         <a {$class} href="{$menu['url']}">
@@ -97,7 +97,7 @@ EOF;
             } else {
                 $arrow = '<span class="fa arrow"></span>';
             }
-            $menu_name = yii::t('menu', $menu['name']);
+            $menu_name = yii::t('cms-menu', $menu['name']);
             $subMenu .= <<<EOF
 
                             <li>
@@ -127,82 +127,6 @@ EOF;
                 return Url::to([$menu['url']]);
             }
         }
-    }
-
-    /**
-     * 生成给角色赋予权限json数据
-     *
-     * @return string
-     */
-    public static function getBackendMenuJson()
-    {
-        $adminRolePermissions = AdminRolePermission::find()->where([
-            'role_id' => yii::$app->getRequest()->get('id', '')
-        ])->indexBy('menu_id')->column();
-        $model = new self();
-        $menus = $model->find()->where(['type' => self::BACKEND_TYPE])->orderBy("sort asc")->all();
-        $temp = [];
-        foreach ($menus as $key => $menu) {
-            if ($menu['parent_id'] == 0) {
-                $m = [];
-                $m['id'] = $menu['id'];
-                $m['text'] = yii::t('menu', $menu['name']);
-                if (isset($adminRolePermissions[$menu['id']])) {
-                    $m['state'] = ['selected' => true];
-                }
-                $m['children'] = self::_getBackendSubMenuJson($menus, $menu['id'], $adminRolePermissions);
-                if (self::_needSelected($m)) {
-                    $m['state'] = ['selected' => true];
-                } else {
-                    $m['state'] = ['selected' => false];
-                }
-                array_push($temp, $m);
-            }
-        }
-        return json_encode($temp);
-    }
-
-    private static function _getBackendSubMenuJson($menus, $cur_id, $adminRolePermissions)
-    {
-        $temp = [];
-        foreach ($menus as $key => $menu) {
-            if ($menu['parent_id'] == $cur_id) {
-                $m = [];
-                $m['id'] = $menu['id'];
-                $m['text'] = yii::t('menu', $menu['name']);
-                if (isset($adminRolePermissions[$menu['id']])) {
-                    $m['state'] = ['selected' => true];
-                }
-                $m['children'] = self::_getBackendSubMenuJson($menus, $menu['id'], $adminRolePermissions);
-                if (self::_needSelected($m)) {
-                    $m['state'] = ['selected' => true];
-                } else {
-                    $m['state'] = ['selected' => false];
-                }
-                array_push($temp, $m);
-            }
-        }
-        return $temp;
-    }
-
-    private static function _needSelected($children)
-    {
-        if (isset($children['children']) && empty($children['children'])) {
-            if (isset($children['state']['selected']) && $children['state']['selected'] == true) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            foreach ($children as $child) {
-                if (isset($child['state']['selected']) && $child['state']['selected'] == false) {
-                    return true;
-                } elseif (isset($child['children'])) {
-                    self::_needSelected($child['children']);
-                }
-            }
-        }
-        return false;
     }
 
     /**

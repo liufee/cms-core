@@ -6,12 +6,12 @@
  * Created at: 2016-10-21 14:40
  */
 
-namespace backend\models\form;
+namespace cms\backend\models\form;
 
 use yii;
 use common\models\Options;
 
-class SettingSmtpForm extends \common\models\Options
+class SettingSmtpForm extends \cms\common\models\Options
 {
     public $smtp_host;
 
@@ -32,12 +32,12 @@ class SettingSmtpForm extends \common\models\Options
     public function attributeLabels()
     {
         return [
-            'smtp_host' => yii::t('app', 'SMTP Host'),
-            'smtp_port' => yii::t('app', 'SMTP Port'),
-            'smtp_username' => yii::t('app', 'SMTP Username'),
-            'smtp_nickname' => yii::t('app', 'Sender'),
-            'smtp_password' => yii::t('app', 'SMTP Password'),
-            'smtp_encryption' => yii::t('app', 'Encryption'),
+            'smtp_host' => yii::t('cms', 'SMTP Host'),
+            'smtp_port' => yii::t('cms', 'SMTP Port'),
+            'smtp_username' => yii::t('cms', 'SMTP Username'),
+            'smtp_nickname' => yii::t('cms', 'Sender'),
+            'smtp_password' => yii::t('cms', 'SMTP Password'),
+            'smtp_encryption' => yii::t('cms', 'Encryption'),
         ];
     }
 

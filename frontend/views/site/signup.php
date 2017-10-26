@@ -11,9 +11,9 @@
 /* @var $model frontend\models\form\SignupForm */
 
 use yii\helpers\Html;
-use frontend\widgets\ActiveForm;
+use cms\frontend\widgets\ActiveForm;
 
-$this->title = yii::t('frontend', 'Sign up') . '-' . yii::$app->feehi->website_title;
+$this->title = yii::t('cms', 'Sign up') . '-' . yii::$app->feehi->website_title;
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerMetaTag(['keywords' => yii::$app->feehi->seo_keywords]);
@@ -28,7 +28,7 @@ $this->registerMetaTag(['description' => yii::$app->feehi->seo_description]);
                 width: 100px
             }
         </style>
-        <p><?= yii::t('frontend', 'Please fill out the following fields to signup') ?>:</p>
+        <p><?= yii::t('cms', 'Please fill out the following fields to signup') ?>:</p>
 
         <div class="row">
             <div class="col-lg-5">
@@ -41,7 +41,7 @@ $this->registerMetaTag(['description' => yii::$app->feehi->seo_description]);
                 <?= $form->field($model, 'password', ['template' => "<div style='position:relative'>{label}{input}\n{error}\n{hint}</div>"])->passwordInput() ?>
 
                 <div class="form-group" style="margin-left: 180px">
-                    <?= Html::submitButton(yii::t('frontend', 'Signup'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton(yii::t('cms', 'Signup'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

@@ -18,7 +18,7 @@ use yii\helpers\Url;
 use feehi\components\Captcha;
 
 AppAsset::register($this);
-$this->title = yii::t('app', 'Login');
+$this->title = yii::t('cms', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php $this->beginPage() ?>
@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div>
                 <h1 class="logo-name">H+</h1>
             </div>
-            <h3><?= yii::t('app', 'Welcome to') ?> Feehi CMS</h3>
+            <h3><?= yii::t('cms', 'Welcome to') ?> Feehi CMS</h3>
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
             <?= $form->field($model, 'username', ['template' => "<div style='position:relative'>{input}\n{error}\n{hint}</div>"])
                 ->textInput(['autofocus' => true, 'placeholder' => yii::t("app", "Username")]) ?>
@@ -85,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]) ?>
 
             <p class="text-muted text-center"><a href="<?= Url::to(['admin-user/request-password-reset']) ?>">
-                    <small><?= yii::t('app', 'Forgot password') ?></small>
+                    <small><?= yii::t('cms', 'Forgot password') ?></small>
                 </a> |
                 <?php
                 if (yii::$app->language == 'en-US') {

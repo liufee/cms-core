@@ -58,6 +58,12 @@ return [
     "None category named {name}" => '未找到分类{name}',
     "Login" => "登录",
     "Incorrect username or password." => "用户名或者密码错误",
+    'Please fill out your email. A link to reset password will be sent there.' => '请输入注册时的邮箱，重置密码链接将会发送到此邮箱',
+    'Email' => '邮箱',
+    'Request password reset' => '重置密码',
+    'Send' => '发送',
+    'Username' => '用户名',
+    'Password' => '密码',
     /*site*/
 
     /*article*/

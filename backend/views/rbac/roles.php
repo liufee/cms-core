@@ -21,7 +21,7 @@ use backend\grid\CheckboxColumn;
 use backend\grid\ActionColumn;
 
 $this->title = "Roles";
-$this->params['breadcrumbs'][] = yii::t('app', 'Roles');
+$this->params['breadcrumbs'][] = yii::t('cms', 'Roles');
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -31,24 +31,24 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Roles');
                 <?= Bar::widget([
                     'buttons' => [
                         'create' => function () {
-                            return Html::a('<i class="fa fa-plus"></i> ' . yii::t('app', 'Create'), Url::to(['role-create']), [
-                                'title' => yii::t('app', 'Create'),
+                            return Html::a('<i class="fa fa-plus"></i> ' . yii::t('cms', 'Create'), Url::to(['role-create']), [
+                                'title' => yii::t('cms', 'Create'),
                                 'data-pjax' => '0',
                                 'class' => 'btn btn-white btn-sm',
                             ]);
                         },
                         'sort' => function () {
-                            return Html::a('<i class="fa fa-sort-numeric-desc"></i> ' . yii::t('app', 'Sort'), Url::to(['role-sort']), [
-                                'title' => yii::t('app', 'Sort'),
+                            return Html::a('<i class="fa fa-sort-numeric-desc"></i> ' . yii::t('cms', 'Sort'), Url::to(['role-sort']), [
+                                'title' => yii::t('cms', 'Sort'),
                                 'data-pjax' => '0',
                                 'class' => 'btn btn-white btn-sm sort',
                             ]);
                         },
                         'delete' => function () {
-                            return Html::a('<i class="fa fa-trash-o"></i> ' . yii::t('app', 'Delete'), Url::to(['role-delete']), [
-                                'title' => yii::t('app', 'Delete'),
+                            return Html::a('<i class="fa fa-trash-o"></i> ' . yii::t('cms', 'Delete'), Url::to(['role-delete']), [
+                                'title' => yii::t('cms', 'Delete'),
                                 'data-pjax' => '0',
-                                'data-confirm' => yii::t('app', 'Realy to delete?'),
+                                'data-confirm' => yii::t('cms', 'Realy to delete?'),
                                 'class' => 'btn btn-white btn-sm multi-operate',
                             ]);
                         }
@@ -80,20 +80,20 @@ $this->params['breadcrumbs'][] = yii::t('app', 'Roles');
                             'width' => '190px',
                             'buttons' => [
                                 'update' => function ($url, $model, $key) {
-                                    return Html::a('<i class="fa  fa-edit" aria-hidden="true"></i> ' . Yii::t('app', 'Update'), Url::to([
+                                    return Html::a('<i class="fa  fa-edit" aria-hidden="true"></i> ' . yii::t('cms', 'Update'), Url::to([
                                         'role-update',
                                         'name' => $model['name']
                                     ]), [
-                                        'title' => Yii::t('app', 'Update'),
+                                        'title' => yii::t('cms', 'Update'),
                                         'data-pjax' => '0',
                                         'class' => 'btn btn-white btn-sm J_menuItem',
                                     ]);
                                 },
                                 'delete' => function ($url, $model) {
-                                    return Html::a('<i class="fa fa-trash-o"></i> ' . yii::t('app', 'Delete'), Url::to(['role-delete', 'name'=>$model['name']]), [
-                                        'title' => yii::t('app', 'Delete'),
+                                    return Html::a('<i class="fa fa-trash-o"></i> ' . yii::t('cms', 'Delete'), Url::to(['role-delete', 'name'=>$model['name']]), [
+                                        'title' => yii::t('cms', 'Delete'),
                                         'data-pjax' => '0',
-                                        'data-confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                                        'data-confirm' => yii::t('cms', 'Are you sure you want to delete this item?'),
                                         'class' => 'btn btn-white btn-sm',
                                     ]);
                                 },

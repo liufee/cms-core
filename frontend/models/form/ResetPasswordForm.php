@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2017-03-15 21:16
  */
-namespace frontend\models\form;
+namespace cms\frontend\models\form;
 
 use yii;
 use common\models\User;
@@ -20,7 +20,7 @@ class ResetPasswordForm extends Model
     public $password;
 
     /**
-     * @var \common\models\User
+     * @var \cms\common\models\User
      */
     private $_user;
 
@@ -61,7 +61,7 @@ class ResetPasswordForm extends Model
     public function attributeLabels()
     {
         return [
-            'password' => yii::t('app', 'Password'),
+            'password' => yii::t('cms', 'Password'),
         ];
     }
 

@@ -6,7 +6,7 @@
  * Created at: 2017-03-15 21:16
  */
 
-namespace backend\widgets\ueditor;
+namespace cms\backend\widgets\ueditor;
 
 use yii;
 

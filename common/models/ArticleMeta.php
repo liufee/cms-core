@@ -6,7 +6,7 @@
  * Created at: 2016-10-16 17:15
  */
 
-namespace common\models;
+namespace cms\common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -58,11 +58,11 @@ class ArticleMeta extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'aid' => Yii::t('app', 'Aid'),
-            'key' => Yii::t('app', 'Key'),
-            'value' => Yii::t('app', 'Value'),
-            'created_at' => Yii::t('app', 'Created At'),
+            'id' => yii::t('cms', 'ID'),
+            'aid' => yii::t('cms', 'Aid'),
+            'key' => yii::t('cms', 'Key'),
+            'value' => yii::t('cms', 'Value'),
+            'created_at' => yii::t('cms', 'Created At'),
         ];
     }
 }

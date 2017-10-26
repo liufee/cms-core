@@ -5,7 +5,7 @@
  * Email: job@feehi.com
  * Created at: 2017-03-15 21:16
  */
-namespace backend\models\form;
+namespace cms\backend\models\form;
 
 use yii;
 use yii\base\Model;
@@ -43,7 +43,7 @@ class LoginForm extends Model
                 'captcha',
                 'captcha',
                 'captchaAction' => 'site/captcha',
-                'message' => yii::t('app', 'Verification code error.')
+                'message' => yii::t('cms', 'Verification code error.')
             ],
         ];
     }
@@ -60,7 +60,7 @@ class LoginForm extends Model
         if (! $this->hasErrors()) {
             $user = $this->getUser();
             if (! $user || ! $user->validatePassword($this->password)) {
-                $this->addError($attribute, yii::t('app', 'Incorrect username or password.'));
+                $this->addError($attribute, yii::t('cms', 'Incorrect username or password.'));
             }
         }
     }
@@ -99,8 +99,8 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => yii::t('app', 'Username'),
-            'password' => yii::t('app', 'Password'),
+            'username' => yii::t('cms', 'Username'),
+            'password' => yii::t('cms', 'Password'),
         ];
     }
 

@@ -8,18 +8,18 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $article frontend\models\Article */
-/* @var $model frontend\models\form\ArticlePasswordForm */
+/* @var $article cms\frontend\models\Article */
+/* @var $model cms\frontend\models\form\ArticlePasswordForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = yii::t('app', $article->title);
+$this->title = yii::t('cms', $article->title);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="content-wrap">
     <div class="site-login article-content" style="width:500px;margin: 0 auto;text-align: center">
-        <h5><?= yii::t('frontend', 'Please input the password of article id {id} : {article}', ['article'=>$article->title, 'id'=>$article->id]) ?></h5>
+        <h5><?= yii::t('cms', 'Please input the password of article id {id} : {article}', ['article'=>$article->title, 'id'=>$article->id]) ?></h5>
         <style>
             label {
                 float: left;
@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'password', ['template' => "<div style='position:relative'>{label}{input}\n{error}\n{hint}</div>"])->textInput(['autofocus' => true]) ?>
 
                 <div class="form-group" style="margin-right: 50px">
-                    <?= Html::submitButton(yii::t('frontend', 'Go'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton(yii::t('cms', 'Go'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

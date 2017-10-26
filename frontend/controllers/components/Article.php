@@ -6,12 +6,12 @@
  * Created at: 2016-04-04 16:53
  */
 
-namespace frontend\controllers\components;
+namespace cms\frontend\controllers\components;
 
-use common\models\meta\ArticleMetaTag;
+use cms\common\models\meta\ArticleMetaTag;
 use yii\base\Object;
 use yii\data\ActiveDataProvider;
-use frontend\models\Article as ArticleModel;
+use cms\frontend\models\Article as ArticleModel;
 
 class Article extends Object
 {
