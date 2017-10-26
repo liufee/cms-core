@@ -17,9 +17,6 @@ cache:
     - $HOME/.composer/cache
 
 install:
-  - travis_retry ls
-  - travis_retry ls ../
-  - travis_retry cd ..
   - travis_retry mv cms-core temp
   - travis_retry git clone https://github.com/liufee/feehicms.git cms-core
   - travis_retry cd cms-core
@@ -28,8 +25,6 @@ install:
   - travis_retry composer update --prefer-dist --no-interaction
   - travis_retry rm -rf vendor/feehi/cms-core
   - travis_retry mv ../temp vendor/feehi/cms-core
-  - travis_retry ls vendor/feehi/cms-core
-  - travis_retry ls vendor/feehi/cms-core/feehi/components
 # setup application:
   - |
     ./init --env=Development
