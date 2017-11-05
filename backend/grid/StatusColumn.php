@@ -23,8 +23,6 @@ class StatusColumn extends DataColumn
 
     public $attribute = 'status';
 
-    public $label = 'label';
-
     public $headerOptions = ['width' => '25px'];
 
     public $url = '';
@@ -44,10 +42,6 @@ class StatusColumn extends DataColumn
     {
         parent::init();
 
-        if( $this->label == 'label' ){
-            $this->label = yii::t('cms', 'Status');
-        }
-
         if( empty($this->aOptions) ){
             if( $this->url !== false ){
                 $this->aOptions = array_merge($this->aOptions, [
@@ -61,6 +55,7 @@ class StatusColumn extends DataColumn
             /* @var $model array|yii\db\ActiveRecord */
             $field = $this->attribute;
             $text = Constants::getYesNoItems($model[$field]);
+            if( !is_string($text) ) throw new InvalidArgumentException("No status valued {$model[$field]}");
             if( $this->url === false ){
                 $url = '';
             }else {
@@ -86,7 +81,7 @@ class StatusColumn extends DataColumn
                 }
                 if( !isset( $this->aOptions['data-confirm'] ) ){
                     $aOptions = array_merge([
-                        'data-confirm' => $model[$field] == Constants::YesNo_Yes ? yii::t('cms', 'Are you sure you want to disable this item?') : yii::t('cms', 'Are you sure you want to enable this item?'),
+                        'data-confirm' => $model[$field] == Constants::YesNo_Yes ? Yii::t('app', 'Are you sure you want to disable this item?') : Yii::t('app', 'Are you sure you want to enable this item?'),
                     ],$this->aOptions, $aOptions);
                 }
             }

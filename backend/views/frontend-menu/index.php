@@ -64,6 +64,8 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Frontend Menus');
                         ],
                         [
                             'class' => SortColumn::className(),
+                            'primaryKey' => 'id',
+                            'label' => yii::t('app', 'Sort')
                         ],
                         [
                             'attribute' => 'is_display',

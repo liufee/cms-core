@@ -51,7 +51,9 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Category');
                             'label' => yii::t('cms', 'Alias'),
                         ],
                         [
-                            'class' => SortColumn::className()
+                            'class' => SortColumn::className(),
+                            'primaryKey' => 'id',
+                            'label' => yii::t('app', 'Sort')
                         ],
                         [
                             'class' => DateColumn::className(),
