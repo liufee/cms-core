@@ -36,6 +36,10 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Custom Setting');
                             ->label($setting->name)
                             ->widget(Ueditor::className(), ['name' => 'value' . $index]);
 
+                    } else if($setting->input_type == Constants::INPUT_IMG){
+                        echo $form->field($setting,"[$index]value", ['template'=>"{label}\n<div class=\"col-sm-8 image\">{input}{img}\n{error}</div>\n{hint}<div class='col-sm-2'><span class='tips'><i class='fa fa-info-circle'></i> {$setting->tips}  <a class='btn-delete' href='{$deleteUrl}' title='' data-confirm='' data-method='' data-pjax='1'><i style='float: right' class='fa fa-trash-o'></i></a><a href='{$editUrl}' class='btn_edit' title='编辑' data-pjax=''><i style='float: right;margin-right: 10px;' class='fa fa-pencil'></i></a> </span></div>"])
+                            ->label($setting->name)
+                            ->imgInput( ['value' => $setting->value] );
                     } else {
                         if ($setting->input_type == Constants::INPUT_INPUT) {
                             echo $form->field($setting, "[$index]value", ['template' => $template])
@@ -57,7 +61,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Custom Setting');
                     <label class="col-sm-2 control-label"></label>
                     <div class="col-sm-8">
                         <a style="float:right;" type="button" class="btn btn-outline btn-default"
-                           id="add"><?= yii::t('cms', 'Add') ?></a>
+                           id="add"><?= yii::t('app', 'Add') ?></a>
                     </div>
                 </div>
                 <?= $form->defaultButtons() ?>
@@ -72,7 +76,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Custom Setting');
         $('#add').click(function () {
             layer.open({
                 type: 1,
-                title: '<?=yii::t('cms', 'Add')?>',
+                title: '<?=yii::t('app', 'Add')?>',
                 maxmin: true,
                 shadeClose: true, //点击遮罩关闭层
                 area: ['70%', '80%'],
@@ -104,7 +108,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Custom Setting');
                 success: function (data) {
                     layer.open({
                         type: 1,
-                        title: '<?=yii::t('cms', 'Update')?> ' + name,
+                        title: '<?=yii::t('app', 'Update')?> ' + name,
                         maxmin: true,
                         shadeClose: true, //点击遮罩关闭层
                         area: ['70%', '80%'],
@@ -143,7 +147,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Custom Setting');
 <div class="hide" id="addForm">
     <div class="ibox-content">
         <?php
-        ActiveForm::begin(['action' => \yii\helpers\Url::to(['setting/custom-create'])]);
+        ActiveForm::begin(['action' => Url::to(['setting/custom-create'])]);
         echo $form->field($model, 'name')->textInput();
         echo $form->field($model, 'input_type')->dropDownList(Constants::getInputTypeItems());
         echo $form->field($model, 'tips')->textInput();
