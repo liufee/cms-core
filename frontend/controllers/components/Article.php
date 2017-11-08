@@ -9,11 +9,10 @@
 namespace cms\frontend\controllers\components;
 
 use cms\common\models\meta\ArticleMetaTag;
-use yii\base\Object;
 use yii\data\ActiveDataProvider;
 use cms\frontend\models\Article as ArticleModel;
 
-class Article extends Object
+class Article extends \yii\base\BaseObject
 {
 
     /**
