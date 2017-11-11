@@ -9,6 +9,7 @@
 namespace cms\backend\grid;
 
 use yii;
+use InvalidArgumentException;
 use common\libs\Constants;
 use yii\helpers\Html;
 use yii\helpers\Url;

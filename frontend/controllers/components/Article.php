@@ -8,7 +8,8 @@
 
 namespace cms\frontend\controllers\components;
 
-use cms\common\models\meta\ArticleMetaTag;
+
+use common\models\meta\ArticleMetaTag;
 use yii\data\ActiveDataProvider;
 use cms\frontend\models\Article as ArticleModel;
 
