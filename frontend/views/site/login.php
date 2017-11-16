@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'rememberMe', ['labelOptions'=>['style'=>'width:117px;margin-left:79px;position:relative;left:34px;top:3px']])->checkbox(['style'=>'margin-right:0px;position:relative;top:-2px'])?>
 
                 <div class="form-group" style="color:#999;margin-right: 120px;">
-                    <?= yii::t('frontend', 'If you forgot your password you can') ?> <?= Html::a(yii::t('frontend', 'reset it'), ['site/request-password-reset']) ?>
+                    <?= yii::t('cms', 'If you forgot your password you can') ?> <?= Html::a(yii::t('cms', 'reset it'), ['site/request-password-reset']) ?>
                 </div>
 
                 <div class="form-group" style="margin-right: 50px">
