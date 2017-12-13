@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Permissions');
                             return Html::a('<i class="fa fa-trash-o"></i> ' . yii::t('cms', 'Delete'), Url::to(['permission-delete']), [
                                 'title' => yii::t('cms', 'Delete'),
                                 'data-pjax' => '0',
-                                'data-confirm' => yii::t('cms', 'Realy to delete?'),
+                                'data-confirm' => yii::t('cms', 'Really to delete?'),
                                 'class' => 'btn btn-white btn-sm multi-operate',
                             ]);
                         }

@@ -37,7 +37,7 @@ class FriendlyLink extends \common\models\FriendlyLink
             }
             $fullName = $uploadPath . uniqid() . '_' . $upload->baseName . '.' . $upload->extension;
             if (! $upload->saveAs($fullName)) {
-                $this->addError('image', yii::t('cms', 'Upload {attribute} error', ['attribute' => yii::t('app', 'Image')]) . ': ' . $fullName);
+                $this->addError('image', yii::t('cms', 'Upload {attribute} error', ['attribute' => yii::t('cms', 'Image')]) . ': ' . $fullName);
                 return false;
             }
             $this->image = str_replace(yii::getAlias('@frontend/web'), '', $fullName);

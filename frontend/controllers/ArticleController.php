@@ -10,8 +10,8 @@ namespace cms\frontend\controllers;
 
 use yii;
 use common\libs\Constants;
-use frontend\models\ArticleContent;
 use frontend\models\form\ArticlePasswordForm;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use frontend\models\Article;
 use common\models\Category;
@@ -21,6 +21,8 @@ use common\models\meta\ArticleMetaLike;
 use yii\web\NotFoundHttpException;
 use yii\filters\HttpCache;
 use yii\helpers\Url;
+use yii\web\Response;
+use yii\web\XmlResponseFormatter;
 
 class ArticleController extends Controller
 {
@@ -34,10 +36,10 @@ class ArticleController extends Controller
                 'only' => ['view'],
                 'lastModified' => function ($action, $params) {
                     $id = yii::$app->getRequest()->get('id');
-                    $article = Article::findOne(['id' => $id]);
-                    if( $article === null ) throw new NotFoundHttpException(yii::t('cms', "Article id {id} is not exists", ['id' => $id]));
+                    $model = Article::findOne(['id' => $id, 'type' => Article::ARTICLE, 'status' => Article::ARTICLE_PUBLISHED]);
+                    if( $model === null ) throw new NotFoundHttpException(yii::t("frontend", "Article id {id} is not exists", ['id' => $id]));
                     Article::updateAllCounters(['scan_count' => 1], ['id' => $id]);
-                    if($article->visibility == Constants::ARTICLE_VISIBILITY_PUBLIC) return $article->updated_at;
+                    if($model->visibility == Constants::ARTICLE_VISIBILITY_PUBLIC) return $model->updated_at;
                 },
             ],
         ];
@@ -64,10 +66,17 @@ class ArticleController extends Controller
                 if (! $category = Category::findOne(['alias' => $cat])) {
                     throw new NotFoundHttpException(yii::t('cms', 'None category named {name}', ['name' => $cat]));
                 }
-                $where['cid'] = $category['id'];
+                $descendants = Category::getDescendants($category['id']);
+                if( empty($descendants) ) {
+                    $where['cid'] = $category['id'];
+                }else{
+                    $cids = ArrayHelper::getColumn($descendants, 'id');
+                    $cids[] = $category['id'];
+                    $where['cid'] = $cids;
+                }
             }
         }
-        $query = Article::find()->select([])->where($where);
+        $query = Article::find()->with('category')->where($where);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
@@ -85,18 +94,20 @@ class ArticleController extends Controller
     }
 
     /**
-     * 文章详情页
+     * 文章详情
      *
-     * @param integer $id 文章id
+     * @param $id
      * @return string
+     * @throws \yii\web\NotFoundHttpException
      */
     public function actionView($id)
     {
-        $model = Article::findOne(['id' => $id]);
+        $model = Article::findOne(['id' => $id, 'type' => Article::ARTICLE, 'status' => Article::ARTICLE_PUBLISHED]);
+        if( $model === null ) throw new NotFoundHttpException(yii::t("frontend", "Article id {id} is not exists", ['id' => $id]));
         $prev = Article::find()
             ->where(['cid' => $model->cid])
             ->andWhere(['>', 'id', $id])
-            ->orderBy("sort asc,created_at asc,id desc")
+            ->orderBy("sort asc,created_at desc,id desc")
             ->limit(1)
             ->one();
         $next = Article::find()
@@ -114,45 +125,52 @@ class ArticleController extends Controller
             ->limit(8)
             ->all();
         switch ($model->visibility){
-            case Constants::ARTICLE_VISIBILITY_COMMENT:
+            case Constants::ARTICLE_VISIBILITY_COMMENT://评论可见
                 if( yii::$app->getUser()->getIsGuest() ){
                     $result = Comment::find()->where(['aid'=>$model->id, 'ip'=>yii::$app->getRequest()->getUserIP()])->one();
                 }else{
                     $result = Comment::find()->where(['aid'=>$model->id, 'uid'=>yii::$app->getUser()->getId()])->one();
                 }
                 if( $result === null ) {
-                    $model->content = "<p style='color: red'>" . yii::t('cms', "Only commented user can visit this article") . "</p>";
-                }else{
-                    $model->content = ArticleContent::findOne(['aid'=>$model->id])['content'];
+                    $model->articleContent->content = "<p style='color: red'>" . yii::t('cms', "Only commented user can visit this article") . "</p>";
                 }
                 break;
-            case Constants::ARTICLE_VISIBILITY_SECRET:
+            case Constants::ARTICLE_VISIBILITY_SECRET://加密文章
                 $authorized = yii::$app->getSession()->get("article_password_" . $model->id, null);
                 if( $authorized === null ) $this->redirect(Url::toRoute(['password', 'id'=>$id]));
-                $model->content = ArticleContent::findOne(['aid'=>$model->id])['content'];
                 break;
-            case Constants::ARTICLE_VISIBILITY_LOGIN:
+            case Constants::ARTICLE_VISIBILITY_LOGIN://登陆可见
                 if( yii::$app->getUser()->getIsGuest() ) {
-                    $model->content = "<p style='color: red'>" . yii::t('cms', "Only login user can visit this article") . "</p>";
-                }else{
-                    $model->content = ArticleContent::findOne(['aid'=>$model->id])['content'];
+                    $model->articleContent->content = "<p style='color: red'>" . yii::t('cms', "Only login user can visit this article") . "</p>";
                 }
                 break;
-            default:
-                $model->content = ArticleContent::findOne(['aid'=>$model->id])['content'];
-                break;
-
         }
-        $likeModel = new ArticleMetaLike();
         return $this->render('view', [
             'model' => $model,
-            'likeCount' => $likeModel->getLikeCount($id),
             'prev' => $prev,
             'next' => $next,
             'recommends' => $recommends,
             'commentModel' => $commentModel,
             'commentList' => $commentList,
         ]);
+    }
+
+    /**
+     * 获取文章的点赞数和浏览数
+     *
+     * @param $id
+     * @return array
+     * @throws NotFoundHttpException
+     */
+    public function actionViewAjax($id)
+    {
+        $model = Article::findOne($id);
+        if( $model === null ) throw new NotFoundHttpException("None exists article id");
+        return [
+            'likeCount' => (int)$model->getArticleLikeCount(),
+            'scanCount' => $model->scan_count * 100,
+            'commentCount' => $model->comment_count,
+        ];
     }
 
     /**
@@ -217,11 +235,47 @@ class ArticleController extends Controller
      */
     public function actionLike()
     {
-        $aid = yii::$app->getRequest()->post("um_id");
+        $aid = yii::$app->getRequest()->post("aid");
         $model = new ArticleMetaLike();
         $model->setLike($aid);
         return $model->getLikeCount($aid);
 
+    }
+
+    /**
+     * rss订阅
+     *
+     * @return mixed
+     */
+    public function actionRss()
+    {
+        $xml['channel']['title'] = yii::$app->feehi->website_title;
+        $xml['channel']['description'] = yii::$app->feehi->seo_description;
+        $xml['channel']['lin'] = yii::$app->getUrlManager()->getHostInfo();
+        $xml['channel']['generator'] = yii::$app->getUrlManager()->getHostInfo();
+        $models = Article::find()->limit(10)->where(['status'=>Article::ARTICLE_PUBLISHED, 'type'=>Article::ARTICLE])->orderBy('id desc')->all();
+        foreach ($models as $model){
+            $xml['channel']['item'][] = [
+                'title' => $model->title,
+                'link' => Url::to(['article/view', 'id'=>$model->id]),
+                'pubData' => date('Y-m-d H:i:s', $model->created_at),
+                'source' => yii::$app->feehi->website_title,
+                'author' => $model->author_name,
+                'description' => $model->summary,
+            ];
+        }
+        yii::configure(yii::$app->getResponse(), [
+            'formatters' => [
+                Response::FORMAT_XML => [
+                    'class' => XmlResponseFormatter::className(),
+                    'rootTag' => 'rss',
+                    'version' => '1.0',
+                    'encoding' => 'utf-8'
+                ]
+            ]
+        ]);
+        yii::$app->getResponse()->format = Response::FORMAT_XML;
+        return $xml;
     }
 
 }

@@ -10,6 +10,7 @@ namespace cms\frontend\assets;
 
 class AppAsset extends \yii\web\AssetBundle
 {
+    public $sourcePath = '@cms/frontend/web';
 
     public $css = [
         'static/css/style.css',
@@ -17,12 +18,9 @@ class AppAsset extends \yii\web\AssetBundle
     ];
 
     public $js = [
+        'static/js/jquery.min.js',
         'static/js/index.js',
         'static/plugins/toastr/toastr.min.js',
-    ];
-
-    public $depends = [
-        'feehi\assets\JqueryAsset',
     ];
 
 }

@@ -8,6 +8,7 @@
 
 namespace cms\backend\grid;
 
+use Closure;
 use yii;
 use InvalidArgumentException;
 use common\libs\Constants;
@@ -63,7 +64,11 @@ class StatusColumn extends DataColumn
                 if( $this->url == '' ) {
                     $url = Url::to(['update', 'id' => $model['id']]);
                 }else {
-                    $url = $this->url;
+                    if( $this->url instanceof Closure){
+                        $url = call_user_func($this->url, $model, $key, $index, $gridView);
+                    }else {
+                        $url = $this->url;
+                    }
                 }
             }
             $aOptions = [];
@@ -82,7 +87,7 @@ class StatusColumn extends DataColumn
                 }
                 if( !isset( $this->aOptions['data-confirm'] ) ){
                     $aOptions = array_merge([
-                        'data-confirm' => $model[$field] == Constants::YesNo_Yes ? Yii::t('app', 'Are you sure you want to disable this item?') : Yii::t('app', 'Are you sure you want to enable this item?'),
+                        'data-confirm' => $model[$field] == Constants::YesNo_Yes ? Yii::t('cms', 'Are you sure you want to disable this item?') : Yii::t('cms', 'Are you sure you want to enable this item?'),
                     ],$this->aOptions, $aOptions);
                 }
             }

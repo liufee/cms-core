@@ -9,6 +9,7 @@
 namespace cms\frontend\models;
 
 use yii;
+use yii\helpers\Html;
 
 class Comment extends \common\models\Comment
 {
@@ -36,6 +37,10 @@ class Comment extends \common\models\Comment
                 return false;
             }
         }
+        $this->nickname = Html::encode($this->nickname);
+        $this->email = Html::encode($this->email);
+        $this->website_url = Html::encode($this->website_url);
+        $this->content = Html::encode($this->content);
         return parent::beforeSave($insert);
     }
 
@@ -46,9 +51,8 @@ class Comment extends \common\models\Comment
     {
         if ($insert) {
             $model = Article::findOne($this->aid);
-            $model->setScenario('article');
             $model->comment_count += 1;
-            $model->save();
+            $model->save(false);
         }
         parent::afterSave($insert, $changedAttributes);
     }

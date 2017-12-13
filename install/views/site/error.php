@@ -18,10 +18,10 @@ $this->title = $name;
               role="form">
             <div class="form-group">
                 <input type="text" name="wd" class="form-control"
-                       placeholder="<?= yii::t('app', 'Please Enter the Question') ?> …">
+                       placeholder="<?= yii::t('cms', 'Please Enter the Question') ?> …">
             </div>
             <button style="margin-top: 5px" type="submit"
-                    class="btn btn-primary"><?= yii::t('app', 'Search') ?></button>
+                    class="btn btn-primary"><?= yii::t('cms', 'Search') ?></button>
         </form>
     </div>
 </div>

@@ -8,6 +8,7 @@
 
 namespace cms\backend\models\search;
 
+use common\models\Article as CommonArticle;
 use backend\models\Article;
 use common\models\Category;
 use yii\data\ActiveDataProvider;
@@ -35,6 +36,7 @@ class ArticleSearch extends Article
             [['create_start_at', 'create_end_at', 'update_start_at', 'update_end_at'], 'string'],
             [
                 [
+                    'id',
                     'status',
                     'flag_headline',
                     'flag_recommend',
@@ -60,7 +62,8 @@ class ArticleSearch extends Article
             'create_start_at',
             'create_end_at',
             'update_start_at',
-            'update_end_at'
+            'update_end_at',
+            'id'
         ]);
         return $scenarios;
     }
@@ -72,7 +75,7 @@ class ArticleSearch extends Article
      */
     public function search($params, $type = self::ARTICLE)
     {
-        $query = Article::find()->select([])->where(['type' => $type]);
+        $query = CommonArticle::find()->select([])->where(['type' => $type])->with('category');
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
@@ -87,6 +90,7 @@ class ArticleSearch extends Article
             return $dataProvider;
         }
         $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['id' => $this->id])
             ->andFilterWhere(['status' => $this->status])
             ->andFilterWhere(['flag_headline' => $this->flag_headline])
             ->andFilterWhere(['flag_recommend' => $this->flag_recommend])

@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'SMTP Setting');
                 method: 'post',
                 data: $("form").serialize(),
                 success: function (data) {
-                    layer.msg("<?=yii::t('app', 'Success')?>");
+                    layer.msg("<?=yii::t('cms', 'Success')?>");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     layer.msg(jqXHR.responseJSON.message);

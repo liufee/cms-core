@@ -10,6 +10,8 @@ namespace cms\frontend\assets;
 
 class ViewAsset extends \yii\web\AssetBundle
 {
+    public $sourcePath = '@cms/frontend/web';
+
     public $css = [
         'static/syntaxhighlighter/styles/shCoreDefault.css'
     ];

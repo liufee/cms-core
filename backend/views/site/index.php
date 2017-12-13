@@ -54,7 +54,7 @@ $this->title = yii::t('cms', 'Backend Manage System');
                             <li><a class="J_menuItem" href="<?= Url::to(['article/index']) ?>"><?= yii::t('cms', 'Articles') ?></a></li>
                             <li><a target="_blank" href="<?= yii::$app->params['site']['url'] ?>"><?= yii::t('cms', 'Frontend') ?></a></li>
                             <li class="divider"></li>
-                            <li><a href="<?= Url::toRoute('site/logout') ?>"><?= yii::t('cms', 'Logout') ?></a></li>
+                            <li><a data-method="post" href="<?= Url::toRoute('site/logout') ?>"><?= yii::t('cms', 'Logout') ?></a></li>
                         </ul>
                     </div>
                     <div class="logo-element">H+</div>

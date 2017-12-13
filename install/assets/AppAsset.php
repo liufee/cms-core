@@ -25,7 +25,6 @@ class AppAsset extends AssetBundle
         'js/ajaxForm.js',
     ];
     public $depends = [
-        'cms\feehi\assets\JqueryAsset',
-        'cms\install\assets\LayerAsset',
+        'yii\web\JqueryAsset',
     ];
 }

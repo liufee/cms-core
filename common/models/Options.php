@@ -8,10 +8,13 @@
 
 namespace cms\common\models;
 
+use backend\models\form\AdForm;
 use common\libs\Constants;
 use Yii;
 use common\helpers\FileDependencyHelper;
+use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
+use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
 /**
@@ -31,6 +34,11 @@ class Options extends \yii\db\ActiveRecord
 
     const TYPE_SYSTEM = 0;
     const TYPE_CUSTOM = 1;
+    const TYPE_BANNER = 2;
+    const TYPE_AD = 3;
+
+    const CUNSTOM_AUTOLOAD_NO = 0;
+    const CUSTOM_AUTOLOAD_YES = 1;
 
     /**
      * @inheritdoc
@@ -108,14 +116,14 @@ class Options extends \yii\db\ActiveRecord
                 $upload = UploadedFile::getInstanceByName($key);
                 $old = Options::findOne($this->id);
                 if($upload !== null){
-                    $uploadPath = yii::getAlias('@admin/uploads/custom-setting/');
+                    $uploadPath = yii::getAlias('@uploads/custom-setting/');
                     if (! FileHelper::createDirectory($uploadPath)) {
                         $this->addError($key, "Create directory failed " . $uploadPath);
                         return false;
                     }
                     $fullName = $uploadPath . uniqid() . '_' . $upload->baseName . '.' . $upload->extension;
                     if (! $upload->saveAs($fullName)) {
-                        $this->addError($key, yii::t('app', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('app', 'Picture')]) . ': ' . $fullName);
+                        $this->addError($key, yii::t('cms', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('cms', 'Picture')]) . ': ' . $fullName);
                         return false;
                     }
                     $this->value = str_replace(yii::getAlias('@frontend/web'), '', $fullName);
@@ -135,6 +143,31 @@ class Options extends \yii\db\ActiveRecord
             }
         }
         return true;
+    }
+
+    public static function getBannersByType($name)
+    {
+        $model = Options::findOne(['type'=>self::TYPE_BANNER, 'name'=>$name, 'autoload'=>Constants::Status_Enable]);
+        if( $model == null ) throw new NotFoundHttpException("None banner type named $name");
+        if( $model->value == '' ) $model->value = '[]';
+        $banners = json_decode($model->value, true);
+        ArrayHelper::multisort($banners, 'sort');
+        foreach ($banners as $k => $banner){
+            if( $banner['status'] == Constants::Status_Desable ) unset($banners[$k]);
+        }
+        return $banners;
+    }
+
+    public static function getAdByName($name)
+    {
+        $model = AdForm::findOne(['type'=>self::TYPE_AD, 'name'=>$name]);
+        if( $model == null ) throw new NotFoundHttpException("None ad named $name");
+        if( $model->value == '' ) $model->value = '[]';
+        $temp = json_decode($model->value);
+        foreach ($temp as $k => $v){
+            $model->$k = $v;
+        }
+        return $model;
     }
 
 }

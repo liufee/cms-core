@@ -7,11 +7,11 @@
  */
 
 /* @var $this yii\web\View */
-/* @var $form \frontend\widgets\ActiveForm */
-/* @var $model cms\common\models\LoginForm */
+/* @var $form \yii\bootstrap\ActiveForm*/
+/* @var $model \common\models\LoginForm */
 
 use yii\helpers\Html;
-use cms\frontend\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 $this->registerMetaTag(['keywords' => yii::$app->feehi->seo_keywords]);
 $this->registerMetaTag(['description' => yii::$app->feehi->seo_description]);
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <style>
             label {
                 float: left;
-                width: 100px
+                width: 103px
             }
 
             div.row input{

@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Category');
                         ],
                         [
                             'class' => SortColumn::className(),
-                            'label' => yii::t('app', 'Sort')
+                            'label' => yii::t('cms', 'Sort')
                         ],
                         [
                             'class' => DateColumn::className(),

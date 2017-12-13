@@ -23,8 +23,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string $url
  * @property string $icon
  * @property string $sort
- * @property enum $target
- * @property enum is_absolute_url
+ * @property integer $target
+ * @property integer is_absolute_url
  * @property string $is_display
  * @property string $created_at
  * @property string $updated_at
@@ -128,7 +128,8 @@ class Menu extends \yii\db\ActiveRecord
      */
     protected  static function _getMenus($type)
     {
-        $menus = self::find()->where(['type' => $type])->orderBy("sort asc,parent_id asc")->asArray()->all();
+        static $menus = null;
+        if( $menus === null ) $menus = self::find()->where(['type' => $type])->orderBy("sort asc,parent_id asc")->asArray()->all();
         foreach ($menus as &$menu){
             $menu['name'] = yii::t('cms-menu', $menu['name']);
         }
@@ -155,8 +156,18 @@ class Menu extends \yii\db\ActiveRecord
     {
         $menus = self::getMenus($type);
         $data = [];
-        foreach ($menus as $v){
-            $data[$v['id']] = str_repeat('--', $v['level']) . $v['name'];
+        foreach ($menus as $k => $menu){
+            if( isset($menus[$k+1]['level']) && $menus[$k+1]['level'] == $menu['level'] ){
+                $name = ' ├' . $menu['name'];
+            }else{
+                $name = ' └' . $menu['name'];
+            }
+            if( end($menus) == $menu ){
+                $sign = ' └';
+            }else{
+                $sign = ' │';
+            }
+            $data[$menu['id']] = str_repeat($sign, $menu['level']-1) . $name;
         }
         return $data;
     }

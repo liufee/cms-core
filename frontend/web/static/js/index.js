@@ -850,11 +850,12 @@ eval(function (h, b, i, d, g, f) {
             } else {
                 a(this).addClass("actived");
                 var z = a(this).data("id"), y = a(this).data("action"), x = a(this).children(".count");
-                var w = {action: "bigfa_like", um_id: z, um_action: y, _csrf: a(this).attr('_csrf')};
-                a.post("/article/like", w, function (A) {
+                var w = {aid: z};
+                w[a("meta[name=csrf-param]").attr('content')] = a("meta[name=csrf-token]").attr('content');
+                a.post(a(this).attr('like-url'), w, function (A) {
                     a(x).html(A)
                 });
-                a.tipsBox({
+                jQuery.tipsBox({
                     obj: a(this), str: "+1", callback: function () {
                     }
                 });
@@ -1004,7 +1005,6 @@ eval(function (h, b, i, d, g, f) {
                         a("#respond").after(new_htm)
                     }
                     a("#comment-author-info").slideUp();
-                    console.log(a("#new_comm_" + k));
                     a("#new_comm_" + k).hide().append(B);
                     a("#new_comm_" + k + " li").append(ok_htm);
                     a("#new_comm_" + k).fadeIn(4000);

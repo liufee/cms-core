@@ -7,11 +7,11 @@
  */
 
 /* @var $this yii\web\View */
-/* @var $form frontend\widgets\ActiveForm */
-/* @var $model cms\\frontend\models\form\PasswordResetRequestForm */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \frontend\models\form\PasswordResetRequestForm */
 
 use yii\helpers\Html;
-use cms\frontend\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 $this->title = yii::t('cms', 'Request password reset') . '-' . yii::$app->feehi->website_title;
 $this->params['breadcrumbs'][] = $this->title;
@@ -22,7 +22,7 @@ $this->registerMetaTag(['description' => yii::$app->feehi->seo_description]);
 <style>
     .form-group label {
         float: left;
-        width: 60px
+        width: 69px
     }
     p.help-block{
         float: left;

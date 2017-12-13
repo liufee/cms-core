@@ -39,7 +39,6 @@ class IndexAsset extends \yii\web\AssetBundle
     ];
 
     public $depends = [
-        'feehi\assets\YiiAsset',
-        'feehi\assets\BootstrapAsset',
+        'yii\web\YiiAsset',
     ];
 }

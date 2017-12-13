@@ -20,7 +20,7 @@ use common\models\Category;
 use common\libs\Constants;
 use yii\helpers\Html;
 use backend\widgets\Bar;
-use common\widgets\Pjax;
+use yii\widgets\Pjax;
 use backend\grid\CheckboxColumn;
 use backend\grid\ActionColumn;
 use backend\grid\StatusColumn;
@@ -79,7 +79,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Articles');
                                     $num = Constants::YesNo_Yes;
                                 }
                                 return Html::a(Constants::getYesNoItems($num), 'javascript:void(0)', [
-                                    'img' => $model->thumb,
+                                    'img' => yii::$app->params['site']['url'] . $model->thumb,
                                     'class' => 'thumbImg'
                                 ]);
                            },

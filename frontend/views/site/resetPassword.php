@@ -7,11 +7,11 @@
  */
 
 /* @var $this yii\web\View */
-/* @var $form frontend\widgets\ActiveForm */
+/* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\form\ResetPasswordForm */
 
 use yii\helpers\Html;
-use cms\frontend\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 $this->title = yii::t('cms', 'Reset Password') . '-' . yii::$app->feehi->website_title;
 $this->params['breadcrumbs'][] = $this->title;

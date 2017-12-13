@@ -61,9 +61,9 @@ AppAsset::register($this);
             </div>
             <div class="menu-container">
                 <ul id="menu-page" class="top-menu">
-                    <a target="_blank" href="/about"><?= yii::t('cms', 'About us') ?></a>
+                    <a target="_blank" href="<?=Url::to(['page/view', 'name'=>'about'])?>"><?= yii::t('cms', 'About us') ?></a>
                     |
-                    <a target="_blank" href="/contact"><?= yii::t('cms', 'Contact us') ?></a>
+                    <a target="_blank" href="<?=Url::to(['page/view', 'name'=>'contact'])?>"><?= yii::t('cms', 'Contact us') ?></a>
                 </ul>
             </div>
         </div>
@@ -132,7 +132,7 @@ AppAsset::register($this);
                 <option <?php if (yii::$app->language == 'en-US') {echo "selected";} ?> value="<?= Url::to(['site/language', 'lang' => 'en-US']) ?>">English</option>
             </select>
         </p>
-        <p>Powered by Feehi CMS <a title="飞嗨" target="_blank" href="http://blog.feehi.com">飞嗨</a></p>
+        <p><?=yii::$app->feehi->website_icp?> Powered by Feehi CMS <a title="飞嗨" target="_blank" href="http://blog.feehi.com">飞嗨</a></p>
     </div>
 </footer>
 
