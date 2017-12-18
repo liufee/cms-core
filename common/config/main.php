@@ -1,7 +1,7 @@
 <?php
 $config = [
     'name' => 'Feehi CMS',
-    'version' => '1.0.0-RC2',
+    'version' => '2.0.0',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -49,6 +49,7 @@ $config = [
             'class' => yii\rbac\DbManager::className(),
         ],
         'assetManager' => [
+            'linkAssets' => false,
             'bundles' => [
                 yii\widgets\ActiveFormAsset::className() => [
                     'js' => [

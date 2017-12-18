@@ -119,7 +119,7 @@ use yii\helpers\Url;
                             }
                         </style>
                         <li class="list-group-item">
-                            <span class="badge badge-primary">&nbsp;&nbsp;</span><strong>Feehi CMS</strong>: <?= yii::$app->getVersion() ?>
+                            <span class="badge badge-primary">&nbsp;&nbsp;</span><strong>Feehi CMS</strong>: 2.0.0
                         </li>
                         <li class="list-group-item ">
                             <span class="badge badge-info">&nbsp;&nbsp;</span> <strong>Web Server</strong>: <?= $info['OPERATING_ENVIRONMENT'] ?>
@@ -250,7 +250,7 @@ use yii\helpers\Url;
 $(document).ready(function () {
     $.ajax({
         dataType:"jsonp",
-        url:"//apii.feehi.com/cms/notify",
+        url:"//api.feehi.com/cms/notify",
         success:function (dataAll) {
             data = dataAll.rows;
             $("#notify").empty();

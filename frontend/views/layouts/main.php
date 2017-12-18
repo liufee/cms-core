@@ -119,7 +119,7 @@ AppAsset::register($this);
 <div class="branding branding-black">
     <div class="container_f">
         <h2><?= yii::t('cms', 'Effective,Professional,Conform to SEO') ?></h2>
-        <a class="btn btn-lg" href="http://www.feehi.com/contact" target="_blank"><?= yii::t('cms', 'Contact us') ?></a>
+        <a class="btn btn-lg" href="http://www.feehi.com/page/contact" target="_blank"><?= yii::t('cms', 'Contact us') ?></a>
     </div>
 </div>
 

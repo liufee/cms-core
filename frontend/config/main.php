@@ -95,6 +95,7 @@ return [
             ],
         ],
         'assetManager' => [
+            'linkAssets' => false,
             'bundles' => [
                 yii\web\JqueryAsset::className() => [
                     'js' => [],
