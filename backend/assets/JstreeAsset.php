@@ -12,13 +12,7 @@ use yii;
 
 class JstreeAsset extends \yii\web\AssetBundle
 {
-    public function init()
-    {
-        parent::init();
-        if( yii::$app->getRequest()->getBaseUrl() !== "" ){
-            $this->sourcePath = '@cms/backend/web';
-        }
-    }
+    public $sourcePath = '@cms/backend/web';
 
     public $css = [
         'static/js/plugins/jstree/themes/default/style.min.css',

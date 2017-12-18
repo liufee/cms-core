@@ -12,14 +12,7 @@ use yii;
 
 class IndexAsset extends \yii\web\AssetBundle
 {
-
-    public function init()
-    {
-        parent::init();
-        if( yii::$app->getRequest()->getBaseUrl() !== "" ){
-            $this->sourcePath = '@cms/backend/web';
-        }
-    }
+    public $sourcePath = '@cms/backend/web';
 
     public $css = [
         'static/css/bootstrap.min.css',

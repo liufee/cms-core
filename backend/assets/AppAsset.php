@@ -13,13 +13,7 @@ use yii;
 class AppAsset extends \yii\web\AssetBundle
 {
 
-    public function init()
-    {
-        parent::init();
-        if( yii::$app->getRequest()->getBaseUrl() !== "" ){
-            $this->sourcePath = '@cms/backend/web';
-        }
-    }
+    public $sourcePath = '@cms/backend/web';
 
     public $css = [
         'static/css/bootstrap.min14ed.css?v=3.3.6',
