@@ -77,7 +77,7 @@ class AdForm extends \Common\models\Options
                 $this->addError('ad', "Create directory failed " . $uploadPath);
                 return false;
             }
-            $fullName = $uploadPath . uniqid() . '_' . $upload->baseName . '.' . $upload->extension;
+            $fullName = $uploadPath . uniqid() . '_' . $upload->getBaseName() . '.' . $upload->getExtension();
             if (! $upload->saveAs($fullName)) {
                 $this->addError('ad', yii::t('cms', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('cms', 'Ad')]) . ': ' . $fullName);
                 return false;

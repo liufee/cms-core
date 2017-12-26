@@ -145,7 +145,7 @@ class BannerForm extends \Common\models\Options
                 $this->addError('img', "Create directory failed " . $uploadPath);
                 return false;
             }
-            $fullName = $uploadPath . uniqid() . '_' . $upload->baseName . '.' . $upload->extension;
+            $fullName = $uploadPath . uniqid() . '_' . $upload->getBaseName() . '.' . $upload->getExtension();
             if (! $upload->saveAs($fullName)) {
                 $this->addError('img', yii::t('cms', 'Upload {attribute} error: ' . $upload->error, ['attribute' => yii::t('cms', 'Thumb')]) . ': ' . $fullName);
                 return false;

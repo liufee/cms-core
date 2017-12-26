@@ -35,7 +35,7 @@ class FriendlyLink extends \common\models\FriendlyLink
                 $this->addError('thumb', "Create directory failed " . $uploadPath);
                 return false;
             }
-            $fullName = $uploadPath . uniqid() . '_' . $upload->baseName . '.' . $upload->extension;
+            $fullName = $uploadPath . uniqid() . '_' . $upload->getBaseName() . '.' . $upload->getExtension();
             if (! $upload->saveAs($fullName)) {
                 $this->addError('image', yii::t('cms', 'Upload {attribute} error', ['attribute' => yii::t('cms', 'Image')]) . ': ' . $fullName);
                 return false;
