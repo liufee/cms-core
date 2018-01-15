@@ -13,7 +13,7 @@ use yii;
 class UeditorAsset extends yii\web\AssetBundle
 {
 
-    public $sourcePath = '@cms/backend/web';
+    public $sourcePath = '@cms/backend/web/static/js/plugins/ueditor';
 
     public $js = [
         'ueditor.all.min.js',

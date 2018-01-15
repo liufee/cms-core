@@ -78,9 +78,10 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Articles');
                                 } else {
                                     $num = Constants::YesNo_Yes;
                                 }
-                                return Html::a(Constants::getYesNoItems($num), 'javascript:void(0)', [
-                                    'img' => yii::$app->params['site']['url'] . $model->thumb,
-                                    'class' => 'thumbImg'
+                                return Html::a(Constants::getYesNoItems($num), $model->thumb ? yii::$app->params['site']['url'] . $model->thumb : 'javascript:void(0)', [
+                                    'img' => $model->thumb ? yii::$app->params['site']['url'] . $model->thumb : '',
+                                    'class' => 'thumbImg',
+                                    'target' => '_blank',
                                 ]);
                            },
                             'filter' => Constants::getYesNoItems(),
@@ -195,7 +196,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Articles');
         if (url.length == 0) {
             layer.tips('<?=yii::t('cms', 'No picture')?>', $(this));
         } else {
-            layer.tips('<img src=' + url + '>', $(this));
+            layer.tips('<img style="max-width: 100px;max-height: 60px" src=' + url + '>', $(this));
         }
     }
     $(document).ready(function(){
@@ -211,6 +212,7 @@ $this->params['breadcrumbs'][] = yii::t('cms', 'Articles');
     container.on('pjax:complete',function(args){
         layer.closeAll('loading');
         $('table tr td a.thumbImg').bind('mouseover mouseout', showImg);
+        $("input.sort").bind('blur', indexSort);
     });
 </script>
 <?php JsBlock::end()?>

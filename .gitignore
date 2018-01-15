@@ -1,6 +1,4 @@
 # yii console command
-src/yii
-src/yii_test
 
 # phpstorm project files
 .idea
@@ -15,21 +13,3 @@ nbproject
 
 # windows thumbnail cache
 Thumbs.db
-
-# composer vendor dir
-
-
-# composer itself is not needed
-src/composer.phar
-
-# Mac DS_Store Files
-.DS_Store
-
-# phpunit itself is not needed
-src/phpunit.phar
-# local phpunit config
-src/phpunit.xml
-src/composer.lock
-src/backend/tests/acceptance.suite.yml
-src/frontend/tests/acceptance.suite.yml
-src/api/tests/acceptance.suite.yml
