@@ -6,7 +6,7 @@
  * Created at: 2017-12-27 14:53
  */
 
-namespace common\helpers;
+namespace cms\common\helpers;
 
 use Yii;
 use yii\db\ActiveRecord;

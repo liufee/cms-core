@@ -119,7 +119,7 @@ use yii\helpers\Url;
                             }
                         </style>
                         <li class="list-group-item">
-                            <span class="badge badge-primary">&nbsp;&nbsp;</span><strong>Feehi CMS</strong>: 2.0.1
+                            <span class="badge badge-primary">&nbsp;&nbsp;</span><strong>Feehi CMS</strong>: 2.0.1.1
                         </li>
                         <li class="list-group-item ">
                             <span class="badge badge-info">&nbsp;&nbsp;</span> <strong>Web Server</strong>: <?= $info['OPERATING_ENVIRONMENT'] ?>
